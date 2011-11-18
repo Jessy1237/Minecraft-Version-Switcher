@@ -23,7 +23,7 @@ public class Opener extends JFrame {
 			"/Library/Application Support/minecraft/bin");
 	public static File Wintxt = new File(Windir, "/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/mcversion.txt");
-	public static double vernum = 2.31;
+	public static double vernum = 2.32;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
