@@ -125,10 +125,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.7")) {
 				WinfileJar.renameTo(Winfile17);
 			}
-			if (Opener.mcver.equals("1.0")) {
-				if (Winfile1.exists()) {
-					Winfile1.renameTo(WinfileJar);
-				}
+			if (Winfile1.exists()) {
+				Winfile1.renameTo(WinfileJar);
 			}
 			T.Wintxt1();
 			Download p = new Download();
@@ -141,10 +139,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.7")) {
 				fileJar.renameTo(file17);
 			}
-			if (Opener.mcver.equals("1.0")) {
-				if (file1.exists()) {
-					file1.renameTo(fileJar);
-				}
+			if (file1.exists()) {
+				file1.renameTo(fileJar);
 			}
 			T.Mactxt1();
 			Download p = new Download();
@@ -160,10 +156,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.0")) {
 				WinfileJar.renameTo(Winfile1);
 			}
-			if (Opener.mcver.equals("1.7")) {
-				if(Winfile17.exists()){
+			if (Winfile17.exists()) {
 				Winfile17.renameTo(WinfileJar);
-				}
 			}
 			T.Wintxt17();
 			Download p = new Download();
@@ -176,10 +170,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.0")) {
 				fileJar.renameTo(file1);
 			}
-			if (Opener.mcver.equals("1.7")) {
-				if(file17.exists()){
-					file17.renameTo(fileJar);
-				}
+			if (file17.exists()) {
+				file17.renameTo(fileJar);
 			}
 			T.Mactxt17();
 			Download p = new Download();
@@ -195,10 +187,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.0")) {
 				WinfileJar.renameTo(Winfile1);
 			}
-			if (Opener.mcver.equals("1.8")) {
-				if(Winfile18.exists()){
+			if (Winfile18.exists()) {
 				Winfile18.renameTo(WinfileJar);
-				}
 			}
 			T.Wintxt18();
 			Download p = new Download();
@@ -211,10 +201,8 @@ public class dLoadJars extends JFrame {
 			if (Opener.mcver.equals("1.0")) {
 				fileJar.renameTo(file1);
 			}
-			if (Opener.mcver.equals("1.8")) {
-				if(file18.exists()){
-					file18.renameTo(WinfileJar);
-				}
+			if (file18.exists()) {
+				file18.renameTo(WinfileJar);
 			}
 			T.Mactxt18();
 			Download p = new Download();
