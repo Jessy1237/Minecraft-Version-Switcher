@@ -11,7 +11,7 @@ public class RenamerWin {
 			"/AppData/roaming/.minecraft/bin");
 	public static File Winfile18 = new File(Windir, "/1.8.jar");
 	public static File Winfile17 = new File(Windir, "/1.7.jar");
-	public static File Winfile19 = new File(Windir, "/1.9.jar");
+	public static File Winfile1 = new File(Windir, "/1.0.jar");
 	public static File WinfileJar = new File(Windir, "/minecraft.jar");
 	static TextWriter Win;
 
@@ -24,8 +24,8 @@ public class RenamerWin {
 		if (Opener.mcver.equals("1.7")) {
 			WinfileJar.renameTo(Winfile17);
 		}
-		if (Opener.mcver.equals("1.9")) {
-			WinfileJar.renameTo(Winfile19);
+		if(Opener.mcver.equals("1.0")){
+			WinfileJar.renameTo(Winfile1);
 		}
 		boolean exists = (Winfile18).exists();
 		if (!exists) {
@@ -36,9 +36,9 @@ public class RenamerWin {
 					Winfile17.renameTo(WinfileJar);
 					Win.Wintxt17();
 				}
-				if (Opener.mcver.equals("1.9")) {
-					Winfile19.renameTo(WinfileJar);
-					Win.Wintxt19();
+				if(Opener.mcver.equals("1.0")){
+					Winfile1.renameTo(WinfileJar);
+					Win.Wintxt1();
 				}
 			} else {
 				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
@@ -47,9 +47,9 @@ public class RenamerWin {
 					Winfile17.renameTo(WinfileJar);
 					Win.Wintxt17();
 				}
-				if (Opener.mcver.equals("1.9")) {
-					Winfile19.renameTo(WinfileJar);
-					Win.Wintxt19();
+				if(Opener.mcver.equals("1.0")){
+					Winfile1.renameTo(WinfileJar);
+					Win.Wintxt1();
 				}
 			}
 		} else {
@@ -61,9 +61,9 @@ public class RenamerWin {
 					Winfile18.renameTo(WinfileJar);
 					Win.Wintxt17();
 				}
-				if (Opener.mcver.equals("1.9")) {
-					Winfile19.renameTo(WinfileJar);
-					Win.Wintxt19();
+				if(Opener.mcver.equals("1.0")){
+					Winfile1.renameTo(WinfileJar);
+					Win.Wintxt1();
 				}
 			} else {
 				Win.Wintxt18();
@@ -77,8 +77,8 @@ public class RenamerWin {
 		if (Opener.mcver.equals("1.8")) {
 			WinfileJar.renameTo(Winfile18);
 		}
-		if (Opener.mcver.equals("1.9")) {
-			WinfileJar.renameTo(Winfile19);
+		if(Opener.mcver.equals("1.0")){
+			WinfileJar.renameTo(Winfile1);
 		}
 		boolean exists = (Winfile17).exists();
 		if (!exists) {
@@ -92,9 +92,9 @@ public class RenamerWin {
 					Winfile18.renameTo(WinfileJar);
 					Win.Wintxt18();
 				}
-				if (Opener.mcver.equals("1.9")) {
-					Winfile19.renameTo(WinfileJar);
-					Win.Wintxt19();
+				if(Opener.mcver.equals("1.0")){
+					Winfile1.renameTo(WinfileJar);
+					Win.Wintxt1();
 				}
 			}
 		} else {
@@ -106,9 +106,9 @@ public class RenamerWin {
 					Winfile18.renameTo(WinfileJar);
 					Win.Wintxt18();
 				}
-				if (Opener.mcver.equals("1.9")) {
-					Winfile19.renameTo(WinfileJar);
-					Win.Wintxt19();
+				if(Opener.mcver.equals("1.0")){
+					Winfile1.renameTo(WinfileJar);
+					Win.Wintxt1();
 				}
 			} else {
 				Win.Wintxt17();
@@ -117,17 +117,17 @@ public class RenamerWin {
 		JOptionPane.showMessageDialog(null, "Done", "Minecraft Version Switcher", 1);
 	}
 
-	public void Win19() throws IOException {
-		Opener.Jar = "1.9";
-		if (Opener.mcver.equals("1.8")) {
+	public void Win1() throws IOException {
+		Opener.Jar = "1.0";
+		if(Opener.mcver.equals("1.8")){
 			WinfileJar.renameTo(Winfile18);
 		}
-		if (Opener.mcver.equals("1.7")) {
+		if(Opener.mcver.equals("1.7")){
 			WinfileJar.renameTo(Winfile17);
 		}
-		boolean exists = (Winfile19).exists();
+		boolean exists = (Winfile1).exists();
 		if (!exists) {
-			if (Opener.mcver.equals("1.9")) {
+			if (Opener.mcver.equals("1.0")) {
 				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
 				ErrorWriter.JAS();
 			} else {
@@ -144,7 +144,7 @@ public class RenamerWin {
 			}
 		} else {
 
-			boolean success1 = Winfile19.renameTo(WinfileJar);
+			boolean success1 = Winfile1.renameTo(WinfileJar);
 			if (!success1) {
 				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
 				ErrorWriter.Un();
@@ -157,7 +157,7 @@ public class RenamerWin {
 					Win.Wintxt17();
 				}
 			} else {
-				Win.Wintxt19();
+				Win.Wintxt1();
 			}
 		}
 		JOptionPane.showMessageDialog(null, "Done", "Minecraft Version Switcher", 1);

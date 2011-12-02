@@ -23,18 +23,14 @@ public class Opener extends JFrame {
 			"/Library/Application Support/minecraft/bin");
 	public static File Wintxt = new File(Windir, "/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/mcversion.txt");
-	public static double vernum = 2.32;
+	public static double vernum = 3.0;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
-	public static int JAStORf = 0;
-	public static int Miss = 0;
-	public static int Rev = 0;
-	public static int Un = 0;
-	public static int Done = 0;
 	public JButton Play17;
-	public JButton Play19;
+	public JButton dLoad;
 	public JButton Updateb;
+	public JButton Play1;
 	private JLabel Version1;
 	private static JLabel mcverlabel;
 	static RenamerWin win;
@@ -68,7 +64,7 @@ public class Opener extends JFrame {
 		Wr = new TextWriter();
 		Ma = new TextMaker();
 		this.setTitle("Minecraft Version Switcher");
-		this.setSize(new Dimension(480, 150));
+		this.setSize(new Dimension(480, 200));
 		this.setLocation(MouseInfo.getPointerInfo().getLocation());
 		this.setResizable(false);
 		this.setLayout(null);
@@ -80,12 +76,24 @@ public class Opener extends JFrame {
 				Update.download();
 			}
 		});
-		this.Play19 = new JButton();
-		this.Play19.setText("Play Minecraft Beta 1.9");
-		this.Play19.addActionListener(new ActionListener() {
+		this.Play1 = new JButton();
+		this.Play1.setText("Play Minecraft 1.0");
+		this.Play1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				try{
+					Play1_ActionPerformed();
+				}catch(IOException e2){
+					e2.printStackTrace();
+				}
+			}
+		});
+		this.dLoad = new JButton();
+		this.dLoad.setText("Download Minecraft Jars");
+		this.dLoad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Play19_ActionPerformed();
+					dLoad_ActionPerformed();
+					setVisible(false);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -122,21 +130,34 @@ public class Opener extends JFrame {
 
 		Play18.setBounds(20, 15, 180, 30);
 		Play17.setBounds(275, 15, 180, 30);
-		Play19.setBounds(20, 58, 180, 30);
-		Updateb.setBounds(290, 58, 150, 30);
+		dLoad.setBounds(20, 58, 180, 30);
+		Play1.setBounds(275, 58, 180, 30);
+		Updateb.setBounds(158, 105, 150, 30);
 		mcverlabel.setSize(180, 20);
-		mcverlabel.setLocation(275, 95);
+		mcverlabel.setLocation(275, 145);
 		mcverlabel.setFont(new Font("Arial", Font.PLAIN, 14));
 		Version1.setSize(150, 20);
-		Version1.setLocation(40, 95);
+		Version1.setLocation(40, 145);
 		Version1.setFont(new Font("Arial", Font.PLAIN, 14));
 
 		add(Play18);
 		add(Play17);
-		add(Play19);
+		add(dLoad);
+		add(Play1);
 		add(Updateb);
 		add(Version1);
 		add(mcverlabel);
+	}
+
+	public static void Play1_ActionPerformed() throws IOException {
+		if(osName.contains("win")){
+			win.Win1();
+		}
+		if(osName.contains("mac")){
+			mac.Mac1();
+		}
+		mcver();
+		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
 	private static void Play17_ActionPerformed() throws IOException {
@@ -161,14 +182,8 @@ public class Opener extends JFrame {
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
-	public static void Play19_ActionPerformed() throws IOException {
-		if (osName.contains("win")) {
-			win.Win19();
-		}
-		if (osName.contains("mac")) {
-			mac.Mac19();
-		}
-		mcver();
-		mcverlabel.setText("Current Selected Jar: " + mcver);
+	public static void dLoad_ActionPerformed() throws IOException {
+		dLoadJars d = new dLoadJars();
+		d.setVisible(true);
 	}
 }

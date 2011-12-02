@@ -94,12 +94,12 @@ public class InputCurrentJarGUI extends JFrame{
 			}
 		});
 		bc = new JLabel();
-		bc.setText("Minecraft 1.7 = 1.7");
+		bc.setText("Minecraft Beta 1.7 = 1.7");
 		bc.setBounds(160, 40, 180, 20);
 		bc.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		bb = new JLabel();
-		bb.setText("Minecraft 1.8.1 = 1.8");
+		bb.setText("Minecraft Beta 1.8.1 = 1.8");
 		bb.setFont(new Font("Arial", Font.PLAIN, 14));
 		bb.setBounds(160, 60, 180, 20);
 		
@@ -113,8 +113,8 @@ public class InputCurrentJarGUI extends JFrame{
 		bd.setFont(new Font("Arial", Font.PLAIN, 14));
 		bd.setBounds(120, 10, 240, 20);
 		
-		a.setText("E.g. 1.7 or 1.8");
-		a.setBounds(180, 115, 80, 25);
+		a.setText("E.g. 1.7, 1.8 or 1.0");
+		a.setBounds(180, 115, 90, 25);
 		
 		bu.setBounds(185, 155, 70, 30);
 		

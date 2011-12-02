@@ -57,19 +57,10 @@ public class Update {
 	public static void Updatep() throws IOException{
 		int pane = JOptionPane.showConfirmDialog(null, "Update is available, Would you like to update to version " + version + "?", "Minecraft Version Switcher", JOptionPane.YES_NO_OPTION);
 		if(pane ==  0){
-			BufferedInputStream in = new BufferedInputStream(new java.net.URL(dUrl).openStream());
-			FileOutputStream fos = new FileOutputStream(new File(userHome, "Desktop/Minecraft Version Switcher v" + version + ".jar"));
-			BufferedOutputStream bout = new BufferedOutputStream(fos,1024);
-			byte[] data = new byte[1024];
-			int x=0;
-			while((x=in.read(data,0,1024))>=0){
-				bout.write(data,0,x);
-			}
-			bout.close();
-			in.close();
+			dLoadJars.v = "McVS";
+			Download p = new Download();
+			p.setVisible(true);
 			JOptionPane.showMessageDialog(null, "Finished downloading the update, Delete this version and use the new one on your desktop.", "Minecraft Versions Switcher", 1);
-			ver.delete();
-			dir.delete();
 		}
 	}
 }
