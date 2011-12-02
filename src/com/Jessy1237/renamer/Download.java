@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @SuppressWarnings("serial")
-public class Download extends JFrame implements ActionListener{
+public class Download extends JFrame{
 
 	public JButton Start;
 	public JLabel a;
@@ -31,11 +31,11 @@ public class Download extends JFrame implements ActionListener{
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public static String u1 = ("*URL HERE*");
-	public static String u18 = ("*URL HERE*");
+	public static String u18 = ("*URL HERE");
 	public static String u17 = ("*URL HERE*");
 	public static File Dir = new File(userHome, "/McVSTemp");
 	public static File ver = new File(dir, "/version.txt");
-	public static int c = 0;
+	public static int c = 1;
 	
 	public Download(){
 		this.setTitle("Minecraft Version Switcher: Download Jar");
@@ -46,7 +46,18 @@ public class Download extends JFrame implements ActionListener{
 		this.setLocationRelativeTo(null);
 		this.Start = new JButton();
 		this.Start.setText("Start");
-		this.Start.addActionListener(this);
+		this.Start.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt) {
+				a.setEnabled(false);
+		        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+		        try {
+		        	doInBackground();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Error While Downloading file, is your internet working?", "Minecraft Version Switcher", 1);
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		a = new JLabel();
 		a.setText("Click Start, Don't Worry if it freezes it's still downloading!");
@@ -59,17 +70,6 @@ public class Download extends JFrame implements ActionListener{
 		add(Start);
 	}
 	
-	 public void actionPerformed(ActionEvent evt) {
-	        a.setEnabled(false);
-	        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-	        try {
-				doInBackground();
-			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Error While Downloading file, is your internet working?", "Minecraft Version Switcher", 1);
-				e.printStackTrace();
-			}
-	    }
-
 	        public void doInBackground()throws IOException {
 	        	if(c == 0){
 	        		if(dLoadJars.v.equals("1.0")){
@@ -115,6 +115,7 @@ public class Download extends JFrame implements ActionListener{
 	            Toolkit.getDefaultToolkit().beep();
 	            Start.setEnabled(true);
 	            c = 1;
+	            dLoadJars.v = null;
 	            a.setBounds(170, 10, 80, 20);
 	            Start.setText("Done");
 	            a.setText("Done!");
@@ -132,11 +133,11 @@ public class Download extends JFrame implements ActionListener{
 		while((bytesRead = inputStream.read(buffer)) != -1){   
 		   out.write(buffer, 0, bytesRead);
 		}
-		ver.delete();
-		Dir.delete();
 	    out.close();
 	    inputStream.close();
 	    Opener.mcver();
 	    done();
+		ver.delete();
+		Dir.delete();
 	 }
 }

@@ -49,6 +49,7 @@ public class dLoadJars extends JFrame {
 		this.DL1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				v = "1.0";
+				Download.c = 0;
 				Login l = new Login();
 				l.setVisible(true);
 				setVisible(false);
@@ -60,6 +61,7 @@ public class dLoadJars extends JFrame {
 		this.DL18.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				v = "1.8";
+				Download.c = 0;
 				Login l = new Login();
 				l.setVisible(true);
 				setVisible(false);
@@ -71,6 +73,7 @@ public class dLoadJars extends JFrame {
 		this.DL17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				v = "1.7";
+				Download.c = 0;
 				Login l = new Login();
 				l.setVisible(true);
 				setVisible(false);

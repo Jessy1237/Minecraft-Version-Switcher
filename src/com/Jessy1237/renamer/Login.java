@@ -106,37 +106,36 @@ public class Login extends JFrame {
             showError("Can't connect to minecraft.net");
             return;
         }else{
-        	if(dLoadJars.v.equals("1.8")){
-            	setVisible(false);
-        		dLoadJars.DL18_actionPerformed();
-        		return;
+        	if(!result.contains(":")){
+           		if(result.trim().equals("Bad login")){
+                	showError("Login failed, Bad Login");
+                	return;
+           		}else{
+           			if(result.trim().equals("Old version")){
+                		showError("Outdated launcher");
+                		return;
+            		} else {
+                		showError(result);
+                		return;
+            		}
+           		}
+        	}else{
+            	if(dLoadJars.v.equals("1.8")){
+                	setVisible(false);
+            		dLoadJars.DL18_actionPerformed();
+            		return;
+            	}
+            	if(dLoadJars.v.equals("1.7")){
+                	setVisible(false);
+            		dLoadJars.DL17_actionPerformed();
+            		return;
+            	}
+            	if(dLoadJars.v.equals("1.0")){
+                	setVisible(false);
+            		dLoadJars.DL1_actionPerformed();
+            		return;
+            	}
         	}
-        	if(dLoadJars.v.equals("1.7")){
-            	setVisible(false);
-        		dLoadJars.DL17_actionPerformed();
-        		return;
-        	}
-        	if(dLoadJars.v.equals("1.0")){
-            	setVisible(false);
-        		dLoadJars.DL1_actionPerformed();
-        		return;
-        	}
-        }
-        if(!result.contains(":"))
-        {
-            if(result.trim().equals("Bad login"))
-                showError("Login failed");
-            return;
-        }else{
-            if(result.trim().equals("Old version"))
-            {
-                showError("Outdated launcher");
-                return;
-            } else
-            {
-                showError(result);
-                return;
-            }
         }
 	}
 	
