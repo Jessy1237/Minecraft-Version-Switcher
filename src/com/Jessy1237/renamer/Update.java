@@ -58,6 +58,7 @@ public class Update {
 		int pane = JOptionPane.showConfirmDialog(null, "Update is available, Would you like to update to version " + version + "?", "Minecraft Version Switcher", JOptionPane.YES_NO_OPTION);
 		if(pane ==  0){
 			dLoadJars.v = "McVS";
+			Download.c = 0;
 			Download p = new Download();
 			p.setVisible(true);
 		}
