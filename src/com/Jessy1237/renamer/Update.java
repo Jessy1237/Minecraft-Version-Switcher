@@ -60,7 +60,6 @@ public class Update {
 			dLoadJars.v = "McVS";
 			Download p = new Download();
 			p.setVisible(true);
-			JOptionPane.showMessageDialog(null, "Finished downloading the update, Delete this version and use the new one on your desktop.", "Minecraft Versions Switcher", 1);
 		}
 	}
 }

@@ -31,7 +31,7 @@ public class Download extends JFrame{
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public static String u1 = ("*URL HERE*");
-	public static String u18 = ("*URL HERE");
+	public static String u18 = ("*URL HERE*");
 	public static String u17 = ("*URL HERE*");
 	public static File Dir = new File(userHome, "/McVSTemp");
 	public static File ver = new File(dir, "/version.txt");
@@ -98,6 +98,7 @@ public class Download extends JFrame{
 	        				}else{
 	        					if(dLoadJars.v.equals("McVS")){
 	        						loadFile(Update.dUrl, new File(userHome, "/Desktop/Minecraft Version Switcher v" + Update.version + ".jar"));
+	        						JOptionPane.showMessageDialog(null, "Finished downloading the update, Delete this version and use the new one on your desktop.", "Minecraft Versions Switcher", 1);
 	        					}
 	        				}
 	        			}
