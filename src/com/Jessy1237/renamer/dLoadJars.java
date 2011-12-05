@@ -34,10 +34,12 @@ public class dLoadJars extends JFrame {
 
 	public static String v = "";
 	public static TextWriter T;
+	public static Update u;
 
 	public dLoadJars() {
 		T = new TextWriter();
-
+		u = new Update();
+		
 		this.setTitle("Minecraft Version Switcher: Download Minecraft Jars");
 		this.setSize(new Dimension(480, 200));
 		this.setResizable(false);

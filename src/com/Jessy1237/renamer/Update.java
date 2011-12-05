@@ -1,25 +1,41 @@
 package com.Jessy1237.renamer;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.Properties;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
-public class Update {
+@SuppressWarnings("serial")
+public class Update extends JFrame{
 
 	public static String userHome = System.getProperty("user.home");
 	public static File dir = new File(userHome, "/McVSTemp");
 	public static File ver = new File(dir, "/version.txt");
+	public static String desc;
 	static Properties prop = new Properties();
 	static String dUrl;
 	static double version;
 	static int b = 0;
-
+	
+	public static void readUpdate() throws IOException{
+		FileInputStream in = new FileInputStream(ver);
+		prop.load(in);
+		version = Double.parseDouble(prop.getProperty("Version"));
+		dUrl = prop.getProperty("dLink");
+		desc = prop.getProperty("desc");
+		in.close();
+		if(version > Opener.vernum){
+			UpdateGUI u = new UpdateGUI();
+			u.a.setText("Update is available, Would you like to update to version " + version + "?");
+			u.JTA.setText(desc);
+			u.setVisible(true);
+		}else{
+			JOptionPane.showMessageDialog(null, "No update is available, you are up to date.", "Minecraft Version Switcher", 1);
+		}
+	}
 	
 	public static void download(){
 		try{
@@ -38,29 +54,6 @@ public class Update {
 		}catch(IOException e){
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Unable to check server for update, is your internet working?", "Minecraft Version Switcher", 1);
-		}
-	}
-	
-	public static void readUpdate() throws IOException{
-		FileInputStream in = new FileInputStream(ver);
-		prop.load(in);
-		version = Double.parseDouble(prop.getProperty("Version"));
-		dUrl = prop.getProperty("dLink");
-		in.close();
-		if(version > Opener.vernum){
-			Updatep();
-		}else{
-			JOptionPane.showMessageDialog(null, "No update is available, you are up to date.", "Minecraft Version Switcher", 1);
-		}
-	}
-	
-	public static void Updatep() throws IOException{
-		int pane = JOptionPane.showConfirmDialog(null, "Update is available, Would you like to update to version " + version + "?", "Minecraft Version Switcher", JOptionPane.YES_NO_OPTION);
-		if(pane ==  0){
-			dLoadJars.v = "McVS";
-			Download.c = 0;
-			Download p = new Download();
-			p.setVisible(true);
 		}
 	}
 }

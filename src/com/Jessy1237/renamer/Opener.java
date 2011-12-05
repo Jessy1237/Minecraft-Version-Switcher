@@ -2,7 +2,6 @@ package com.Jessy1237.renamer;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.MouseInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -19,8 +18,16 @@ public class Opener extends JFrame {
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,
 			"/AppData/roaming/.minecraft/bin");
+	public static File Winfile18 = new File(Windir, "/1.8.jar");
+	public static File Winfile17 = new File(Windir, "/1.7.jar");
+	public static File Winfile1 = new File(Windir, "/1.0.jar");
+	public static File WinfileJar = new File(Windir, "/minecraft.jar");
 	public static File dir = new File(userHome,
 			"/Library/Application Support/minecraft/bin");
+	public static File file18 = new File(dir, "/1.8.jar");
+	public static File file17 = new File(dir, "/1.7.jar");
+	public static File file1 = new File(dir, "/1.0.jar");
+	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static File Wintxt = new File(Windir, "/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/mcversion.txt");
 	public static double vernum = 3.3;
@@ -33,56 +40,56 @@ public class Opener extends JFrame {
 	public JButton Play1;
 	private JLabel Version1;
 	private static JLabel mcverlabel;
-	static RenamerWin win;
-	static RenamerMac mac;
+	static Switch S;
 	static TextWriter Wr;
 	static TextMaker Ma;
+	static Update U;
 	static Properties prop = new Properties();
 	public static String mcver;
-	
-	public static void mcver() throws IOException{
-		if(osName.contains("win")){
-			if(Wintxt.exists()){
-			FileInputStream in = new FileInputStream(Wintxt);
-			prop.load(in);
-			mcver = prop.getProperty("jar");
-			in.close();
+
+	public static void mcver() throws IOException {
+		if (osName.contains("win")) {
+			if (Wintxt.exists()) {
+				FileInputStream in = new FileInputStream(Wintxt);
+				prop.load(in);
+				mcver = prop.getProperty("jar");
+				in.close();
 			}
-		}else{
-			if(Mactxt.exists()){
-			FileInputStream in = new FileInputStream(Mactxt);
-			prop.load(in);
-			mcver = prop.getProperty("jar");
-			in.close();
+		} else {
+			if (Mactxt.exists()) {
+				FileInputStream in = new FileInputStream(Mactxt);
+				prop.load(in);
+				mcver = prop.getProperty("jar");
+				in.close();
 			}
 		}
 	}
 
-	public Opener(){
-		win = new RenamerWin();
-		mac = new RenamerMac();
+	public Opener() {
+		S = new Switch();
 		Wr = new TextWriter();
 		Ma = new TextMaker();
 		this.setTitle("Minecraft Version Switcher");
 		this.setSize(new Dimension(480, 200));
-		this.setLocation(MouseInfo.getPointerInfo().getLocation());
+		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.Updateb = new JButton();
 		this.Updateb.setText("Check for updates");
-		this.Updateb.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+		this.Updateb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				Update.download();
 			}
 		});
 		this.Play1 = new JButton();
 		this.Play1.setText("Play Minecraft 1.0");
-		this.Play1.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				try{
+		this.Play1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
 					Play1_ActionPerformed();
-				}catch(IOException e2){
+				} catch (IOException e2) {
 					e2.printStackTrace();
 				}
 			}
@@ -150,33 +157,36 @@ public class Opener extends JFrame {
 	}
 
 	public static void Play1_ActionPerformed() throws IOException {
-		if(osName.contains("win")){
-			win.Win1();
+		Jar = "1.0";
+		if (osName.contains("win")) {
+			S.Switchw("1.0", Winfile1);
 		}
-		if(osName.contains("mac")){
-			mac.Mac1();
+		if (osName.contains("mac")) {
+			S.Switchm("1.0", file1);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
 	private static void Play17_ActionPerformed() throws IOException {
+		Jar = "1.7";
 		if (osName.contains("win")) {
-			win.Win17();
+			S.Switchw("1.7", Winfile17);
 		}
 		if (osName.contains("mac")) {
-			mac.Mac17();
+			S.Switchm("1.7", file17);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
 	private static void Play18_ActionPerformed() throws IOException {
+		Jar = "1.8";
 		if (osName.contains("win")) {
-			win.Win18();
+			S.Switchw("1.8", Winfile18);
 		}
 		if (osName.contains("mac")) {
-			mac.Mac18();
+			S.Switchm("1.8", file18);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);

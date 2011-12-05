@@ -33,8 +33,6 @@ public class Download extends JFrame{
 	public static String u1 = ("*URL HERE*");
 	public static String u18 = ("*URL HERE*");
 	public static String u17 = ("*URL HERE*");
-	public static File Dir = new File(userHome, "/McVSTemp");
-	public static File ver = new File(dir, "/version.txt");
 	public static int c = 1;
 	
 	public Download(){
@@ -109,13 +107,22 @@ public class Download extends JFrame{
 	        			dLoadJars d = new dLoadJars();
 	        			d.setVisible(true);
 	        		}
+	        		if(c == 2){
+	        			setVisible(false);
+	        			Opener o = new Opener();
+	        			o.setVisible(true);
+	        		}
 	        	}
 	        }
 
 	        public void done() {
 	            Toolkit.getDefaultToolkit().beep();
 	            Start.setEnabled(true);
-	            c = 1;
+	            if(dLoadJars.v.equals("McVS")){
+	            	c = 2;
+	            }else{
+	            	c = 1;
+	            }
 	            dLoadJars.v = null;
 	            a.setBounds(170, 10, 80, 20);
 	            Start.setText("Done");
@@ -138,7 +145,7 @@ public class Download extends JFrame{
 	    inputStream.close();
 	    Opener.mcver();
 	    done();
-		ver.delete();
-		Dir.delete();
+		Update.ver.delete();
+		Update.dir.delete();
 	 }
 }
