@@ -1,8 +1,5 @@
 package com.Jessy1237.renamer;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Properties;
 
@@ -25,15 +22,15 @@ public class Update extends JFrame{
 		prop.load(in);
 		version = Double.parseDouble(prop.getProperty("Version"));
 		dUrl = prop.getProperty("dLink");
-		desc = prop.getProperty("desc");
 		in.close();
 		if(version > Opener.vernum){
 			UpdateGUI u = new UpdateGUI();
 			u.a.setText("Update is available, Would you like to update to version " + version + "?");
-			u.JTA.setText(desc);
 			u.setVisible(true);
 		}else{
 			JOptionPane.showMessageDialog(null, "No update is available, you are up to date.", "Minecraft Version Switcher", 1);
+			Opener o = new Opener();
+			o.setVisible(true);
 		}
 	}
 	
