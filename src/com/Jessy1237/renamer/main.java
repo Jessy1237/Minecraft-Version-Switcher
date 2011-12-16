@@ -1,9 +1,14 @@
 package com.Jessy1237.renamer;
 
+import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileView;
 
 public class main{
 	
@@ -41,7 +46,8 @@ public class main{
 			o.setVisible(true);
 		}
 	}
-	public static void main(String[] args) throws IOException{
+
+	public static void main(String[] args) throws Exception{
 		b();
 	}
 }

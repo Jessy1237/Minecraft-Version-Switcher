@@ -30,11 +30,12 @@ public class Opener extends JFrame {
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static File Wintxt = new File(Windir, "/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/mcversion.txt");
-	public static double vernum = 3.41;
+	public static double vernum = 3.5;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
 	public JButton Play17;
+	public JButton Email;
 	public JButton dLoad;
 	public JButton Updateb;
 	public JButton Play1;
@@ -69,7 +70,7 @@ public class Opener extends JFrame {
 		S = new Switch();
 		Wr = new TextWriter();
 		Ma = new TextMaker();
-		this.setTitle("Minecraft Version Switcher");
+		this.setTitle("Minecraft Version Switcher By Jessy1237");
 		this.setSize(new Dimension(480, 200));
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -130,6 +131,17 @@ public class Opener extends JFrame {
 				}
 			}
 		});
+		
+		this.Email = new JButton();
+		this.Email.setText("Found a Bug?");
+		this.Email.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				Emailer em = new Emailer();
+				em.setVisible(true);
+				setVisible(false);
+			}
+		});
+		
 		mcverlabel = new JLabel();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 		Version1 = new JLabel();
@@ -139,7 +151,9 @@ public class Opener extends JFrame {
 		Play17.setBounds(275, 15, 180, 30);
 		dLoad.setBounds(20, 58, 180, 30);
 		Play1.setBounds(275, 58, 180, 30);
-		Updateb.setBounds(158, 105, 150, 30);
+		Updateb.setBounds(35, 101, 150, 30);
+		Email.setBounds(290, 101, 150, 30);
+		
 		mcverlabel.setSize(180, 20);
 		mcverlabel.setLocation(275, 145);
 		mcverlabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -152,6 +166,7 @@ public class Opener extends JFrame {
 		add(dLoad);
 		add(Play1);
 		add(Updateb);
+		add(Email);
 		add(Version1);
 		add(mcverlabel);
 	}
