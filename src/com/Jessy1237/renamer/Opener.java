@@ -17,20 +17,27 @@ import javax.swing.JLabel;
 public class Opener extends JFrame {
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,
-			"/AppData/roaming/.minecraft/bin");
-	public static File Winfile18 = new File(Windir, "/1.8.jar");
-	public static File Winfile17 = new File(Windir, "/1.7.jar");
-	public static File Winfile1 = new File(Windir, "/1.0.jar");
-	public static File WinfileJar = new File(Windir, "/minecraft.jar");
-	public static File dir = new File(userHome,
-			"/Library/Application Support/minecraft/bin");
-	public static File file18 = new File(dir, "/1.8.jar");
-	public static File file17 = new File(dir, "/1.7.jar");
-	public static File file1 = new File(dir, "/1.0.jar");
-	public static File fileJar = new File(dir, "/minecraft.jar");
-	public static File Wintxt = new File(Windir, "/.mcversion.txt");
-	public static File Mactxt = new File(dir, "/mcversion.txt");
-	public static double vernum = 3.5;
+			"/AppData/roaming/.minecraft");
+	public static File Winfile18 = new File(Windir, "/bin/1.8.jar");
+	public static File Winfile17 = new File(Windir, "/bin/1.7.jar");
+	public static File Winfile1 = new File(Windir, "/bin/1.0.jar");
+	public static File WinfileJar = new File(Windir, "/bin/minecraft.jar");
+	public static File WinfileFolder = new File(Windir, "/mods");
+	public static File Winfolder18 = new File(Windir, "/mods 1-8");
+	public static File Winfolder17 = new File(Windir, "/mods 1-7");
+	public static File Winfolder1 = new File(Windir, "/mods 1-0");
+	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
+	public static File file18 = new File(dir, "/bin/1.8.jar"); 
+	public static File file17 = new File(dir, "/bin/1.7.jar");
+	public static File file1 = new File(dir, "/bin/1.0.jar");
+	public static File fileJar = new File(dir, "/bin/minecraft.jar");
+	public static File fileFolder = new File(dir, "/mods");
+	public static File folder18 = new File(dir, "/mods 1-8");
+	public static File folder17 = new File(dir, "/mods 1-7");
+	public static File folder1 = new File(dir, "/mods 1-0");
+	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
+	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
+	public static double vernum = 4.1;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
@@ -174,10 +181,10 @@ public class Opener extends JFrame {
 	public static void Play1_ActionPerformed() throws IOException {
 		Jar = "1.0";
 		if (osName.contains("win")) {
-			S.Switchw("1.0", Winfile1);
+			S.Switchw("1.0", Winfile1, Winfolder1);
 		}
 		if (osName.contains("mac")) {
-			S.Switchm("1.0", file1);
+			S.Switchm("1.0", file1, folder1);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
@@ -186,10 +193,10 @@ public class Opener extends JFrame {
 	private static void Play17_ActionPerformed() throws IOException {
 		Jar = "1.7";
 		if (osName.contains("win")) {
-			S.Switchw("1.7", Winfile17);
+			S.Switchw("1.7", Winfile17, Winfolder17);
 		}
 		if (osName.contains("mac")) {
-			S.Switchm("1.7", file17);
+			S.Switchm("1.7", file17, folder17);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
@@ -198,10 +205,10 @@ public class Opener extends JFrame {
 	private static void Play18_ActionPerformed() throws IOException {
 		Jar = "1.8";
 		if (osName.contains("win")) {
-			S.Switchw("1.8", Winfile18);
+			S.Switchw("1.8", Winfile18, Winfolder18);
 		}
 		if (osName.contains("mac")) {
-			S.Switchm("1.8", file18);
+			S.Switchm("1.8", file18, folder18);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);

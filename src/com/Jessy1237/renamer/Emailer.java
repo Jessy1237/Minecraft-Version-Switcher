@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 public class Emailer extends JFrame{
 
 	public static String username;
-	int c = 0;
 	
 	public static JButton Back;
 	public JButton Send;
@@ -32,20 +31,13 @@ public class Emailer extends JFrame{
 		Send = new JButton();
 		Send.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				if(c == 1){
-					setVisible(false);
-					Opener o = new Opener();
-					o.setVisible(true);
-				}
-				if(c == 0){	
-					try {
-						Send_actionPerformed();
-						Send.setText("Done");
-						Send.setBounds(385, 190, 100, 30);
-						c = 1;
-					} catch (MessagingException e1) {
-						JOptionPane.showMessageDialog(null, "Unable To Send Email, Is you Internet working?", "Minecraft Version Switcher: Found a Bug?", 1);
-					}
+				try {
+					Send_actionPerformed();
+					JOptionPane.showMessageDialog(null, "The Bug Message has been sent!");
+					msg.setText("Message Here");
+					user.setText("");
+				} catch (MessagingException e1) {
+					JOptionPane.showMessageDialog(null, "Unable To Send Email, Is you Internet working?", "Minecraft Version Switcher: Found a Bug?", 1);
 				}
 			}
 		});
@@ -60,10 +52,10 @@ public class Emailer extends JFrame{
 		});
 		
 		Send.setText("Send");
-		Send.setBounds(385, 190, 100, 30);
+		Send.setBounds(385, 188, 100, 30);
 		
 		Back.setText("Back");
-		Back.setBounds(95, 190, 100, 30);
+		Back.setBounds(95, 188, 100, 30);
 		
 		a = new JLabel();
 		a.setText("Please be Brief; only tell me what happened and how!");
@@ -80,7 +72,7 @@ public class Emailer extends JFrame{
 		
 		msg = new JTextArea();
 		msg.setText("Message Here");
-		msg.setBounds(10, 75, 560, 110);
+		msg.setBounds(10, 75, 555, 110);
 		
 		add(a);
 		add(b);
@@ -96,7 +88,7 @@ public class Emailer extends JFrame{
 	    props.put("mail.smtp.host", host);
 	    props.put("mail.smtp.user", from);
 	    props.put("mail.smtp.port", "587");
-	    props.put("mail.smtp.password", "*PASSWORD HERE*");
+	    props.put("mail.smtp.password", "McVSBugfinder");
 	    props.put("mail.smtp.auth", "true");
 
 	    Session session = Session.getDefaultInstance(props, null);
@@ -110,7 +102,6 @@ public class Emailer extends JFrame{
 	    for( int i=0; i < to.length; i++ ) {
 	        toAddress[i] = new InternetAddress(to[i]);
 	    }
-	    System.out.println(Message.RecipientType.TO);
 
 	    for( int i=0; i < toAddress.length; i++) {
 	        message.addRecipient(Message.RecipientType.TO, toAddress[i]);
@@ -118,7 +109,7 @@ public class Emailer extends JFrame{
 	    message.setSubject(Subject);
 	    message.setText(msg);
 	    Transport transport = session.getTransport("smtp");
-	    transport.connect(host, from, "*PASSWORD HERE");
+	    transport.connect(host, from, "McVSBugfinder");
 	    transport.sendMessage(message, message.getAllRecipients());
 	    transport.close();
 	}

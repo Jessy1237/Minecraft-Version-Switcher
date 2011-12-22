@@ -21,7 +21,7 @@ public class UpdateGUI extends JFrame{
 		SHb = 1;
 		this.setTitle("Minecraft Version Switcher: Update");
 		this.setResizable(false);
-		this.setSize(new Dimension(480, 130));
+		this.setSize(new Dimension(480, 135));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 		this.setLocationRelativeTo(null);

@@ -41,4 +41,20 @@ public class ErrorWriter {
 		out.flush();
 		out.close();
 	}
+	
+	public static void FMiss(File folder) throws IOException{
+		if(!eTxt.exists()){
+			eTxt.createNewFile();
+		}
+		FileOutputStream out = new FileOutputStream(eTxt);
+		prop2.store(out, "Unable to switch the " + Opener.Jar + " mod folder with the minecraft mod folder. The folder is missing, Try making this folder Here: " + folder);
+	}
+	
+	public static void FUn() throws IOException{
+		if(!eTxt.exists()){
+			eTxt.createNewFile();
+		}
+		FileOutputStream out = new FileOutputStream(eTxt);
+		prop2.store(out, "Unable to switch the " + Opener.Jar + " mod folder!");
+	}
 }
