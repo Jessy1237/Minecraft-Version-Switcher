@@ -37,7 +37,7 @@ public class Opener extends JFrame {
 	public static File folder1 = new File(dir, "/mods 1-0");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
-	public static double vernum = 4.1;
+	public static double vernum = 4.11;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";

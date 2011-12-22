@@ -19,17 +19,24 @@ public class dLoadJars extends JFrame {
 
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,
-			"/AppData/roaming/.minecraft/bin");
-	public static File Winfile18 = new File(Windir, "/1.8.jar");
-	public static File Winfile17 = new File(Windir, "/1.7.jar");
-	public static File Winfile1 = new File(Windir, "/1.0.jar");
-	public static File WinfileJar = new File(Windir, "/minecraft.jar");
-	public static File dir = new File(userHome,
-			"/Library/Application Support/minecraft/bin");
-	public static File file18 = new File(dir, "/1.8.jar");
-	public static File file17 = new File(dir, "/1.7.jar");
-	public static File file1 = new File(dir, "/1.0.jar");
-	public static File fileJar = new File(dir, "/minecraft.jar");
+			"/AppData/roaming/.minecraft");
+	public static File Winfile18 = new File(Windir, "/bin/1.8.jar");
+	public static File Winfile17 = new File(Windir, "/bin/1.7.jar");
+	public static File Winfile1 = new File(Windir, "/bin/1.0.jar");
+	public static File WinfileJar = new File(Windir, "/bin/minecraft.jar");
+	public static File WinfileFolder = new File(Windir, "/mods");
+	public static File Winfolder18 = new File(Windir, "/mods 1-8");
+	public static File Winfolder17 = new File(Windir, "/mods 1-7");
+	public static File Winfolder1 = new File(Windir, "/mods 1-0");
+	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
+	public static File file18 = new File(dir, "/bin/1.8.jar"); 
+	public static File file17 = new File(dir, "/bin/1.7.jar");
+	public static File file1 = new File(dir, "/bin/1.0.jar");
+	public static File fileJar = new File(dir, "/bin/minecraft.jar");
+	public static File fileFolder = new File(dir, "/mods");
+	public static File folder18 = new File(dir, "/mods 1-8");
+	public static File folder17 = new File(dir, "/mods 1-7");
+	public static File folder1 = new File(dir, "/mods 1-0");
 	public static String osName = System.getProperty("os.name").toLowerCase();
 
 	public static String v = "";
@@ -123,12 +130,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("win")) {
 			if (Opener.mcver.equals("1.8")) {
 				WinfileJar.renameTo(Winfile18);
+				WinfileFolder.renameTo(Winfolder18);
 			}
 			if (Opener.mcver.equals("1.7")) {
 				WinfileJar.renameTo(Winfile17);
+				WinfileFolder.renameTo(Winfolder17);
 			}
 			if (Winfile1.exists()) {
 				Winfile1.renameTo(WinfileJar);
+				Winfolder1.renameTo(WinfileFolder);
 			}
 			T.Wintxt1();
 			Download p = new Download();
@@ -137,12 +147,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("mac")) {
 			if (Opener.mcver.equals("1.8")) {
 				fileJar.renameTo(file18);
+				fileFolder.renameTo(folder18);
 			}
 			if (Opener.mcver.equals("1.7")) {
 				fileJar.renameTo(file17);
+				fileFolder.renameTo(folder17);
 			}
 			if (file1.exists()) {
 				file1.renameTo(fileJar);
+				file1.renameTo(WinfileFolder);
 			}
 			T.Mactxt1();
 			Download p = new Download();
@@ -154,12 +167,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("win")) {
 			if (Opener.mcver.equals("1.8")) {
 				WinfileJar.renameTo(Winfile18);
+				WinfileFolder.renameTo(Winfolder18);
 			}
 			if (Opener.mcver.equals("1.0")) {
 				WinfileJar.renameTo(Winfile1);
+				WinfileFolder.renameTo(Winfolder1);
 			}
 			if (Winfile17.exists()) {
 				Winfile17.renameTo(WinfileJar);
+				Winfolder17.renameTo(WinfileFolder);
 			}
 			T.Wintxt17();
 			Download p = new Download();
@@ -168,12 +184,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("mac")) {
 			if (Opener.mcver.equals("1.8")) {
 				fileJar.renameTo(file18);
+				fileFolder.renameTo(folder18);
 			}
 			if (Opener.mcver.equals("1.0")) {
 				fileJar.renameTo(file1);
+				fileFolder.renameTo(folder1);
 			}
 			if (file17.exists()) {
 				file17.renameTo(fileJar);
+				folder17.renameTo(fileFolder);
 			}
 			T.Mactxt17();
 			Download p = new Download();
@@ -185,12 +204,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("win")) {
 			if (Opener.mcver.equals("1.7")) {
 				WinfileJar.renameTo(file17);
+				WinfileFolder.renameTo(folder17);
 			}
 			if (Opener.mcver.equals("1.0")) {
 				WinfileJar.renameTo(Winfile1);
+				WinfileFolder.renameTo(Winfolder1);
 			}
 			if (Winfile18.exists()) {
 				Winfile18.renameTo(WinfileJar);
+				Winfolder18.renameTo(WinfileFolder);
 			}
 			T.Wintxt18();
 			Download p = new Download();
@@ -199,12 +221,15 @@ public class dLoadJars extends JFrame {
 		if (osName.contains("mac")) {
 			if (Opener.mcver.equals("1.7")) {
 				fileJar.renameTo(file17);
+				fileFolder.renameTo(folder17);
 			}
 			if (Opener.mcver.equals("1.0")) {
 				fileJar.renameTo(file1);
+				fileFolder.renameTo(folder1);
 			}
 			if (file18.exists()) {
 				file18.renameTo(WinfileJar);
+				folder18.renameTo(WinfileFolder);
 			}
 			T.Mactxt18();
 			Download p = new Download();
