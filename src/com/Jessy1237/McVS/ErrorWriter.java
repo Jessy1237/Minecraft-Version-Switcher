@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,7 +16,7 @@ public class ErrorWriter {
 			eTxt.createNewFile();
 		}
 		FileOutputStream out = new FileOutputStream(eTxt);
-		prop2.store(out, "Unable to switch the jar " + Opener.Jar +" with " + Opener.mcver +  " Was Your Minecraft Open?");
+		prop2.store(out, "Unable to switch the jar " + McVS.Jar +" with " + McVS.mcver +  " Was Your Minecraft Open?");
 		out.flush();
 		out.close();
 	}
@@ -26,7 +26,7 @@ public class ErrorWriter {
 		eTxt.createNewFile();
 	}
 	FileOutputStream out = new FileOutputStream(eTxt);
-	prop2.store(out, "Your " + Opener.Jar + " Jar is missing, have you deleted it?");
+	prop2.store(out, "Your " + McVS.Jar + " Jar is missing, have you deleted it?");
 	out.flush();
 	out.close();
 	}
@@ -37,7 +37,7 @@ public class ErrorWriter {
 		}
 		FileOutputStream out = new FileOutputStream(eTxt);
 		prop2.store(out, "Your current Jar is already set to "
-				+ Opener.Jar + ".");
+				+ McVS.Jar + ".");
 		out.flush();
 		out.close();
 	}
@@ -47,7 +47,9 @@ public class ErrorWriter {
 			eTxt.createNewFile();
 		}
 		FileOutputStream out = new FileOutputStream(eTxt);
-		prop2.store(out, "Unable to switch the " + Opener.Jar + " mod folder with the minecraft mod folder. The folder is missing, Try making this folder Here: " + folder);
+		prop2.store(out, "Unable to switch the " + McVS.Jar + " mod folder with the minecraft mod folder. The folder is missing, Try making this folder Here: " + folder);
+		out.flush();
+		out.close();
 	}
 	
 	public static void FUn() throws IOException{
@@ -55,6 +57,8 @@ public class ErrorWriter {
 			eTxt.createNewFile();
 		}
 		FileOutputStream out = new FileOutputStream(eTxt);
-		prop2.store(out, "Unable to switch the " + Opener.Jar + " mod folder!");
+		prop2.store(out, "Unable to switch the " + McVS.Jar + " mod folder!");
+		out.flush();
+		out.close();
 	}
 }

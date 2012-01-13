@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.io.*;
 import java.util.Properties;
@@ -23,13 +23,13 @@ public class Update extends JFrame{
 		version = Double.parseDouble(prop.getProperty("Version"));
 		dUrl = prop.getProperty("dLink");
 		in.close();
-		if(version > Opener.vernum){
+		if(version > McVS.vernum){
 			UpdateGUI u = new UpdateGUI();
 			u.a.setText("Update is available, Would you like to update to version " + version + "?");
 			u.setVisible(true);
 		}else{
 			JOptionPane.showMessageDialog(null, "No update is available, you are up to date.", "Minecraft Version Switcher", 1);
-			Opener o = new Opener();
+			McVS o = new McVS();
 			o.setVisible(true);
 		}
 	}

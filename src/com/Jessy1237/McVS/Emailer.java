@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.util.*;
 import javax.mail.*;
@@ -46,7 +46,7 @@ public class Emailer extends JFrame{
 		Back.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				setVisible(false);
-				Opener o = new Opener();
+				McVS o = new McVS();
 				o.setVisible(true);
 			}
 		});
@@ -88,7 +88,7 @@ public class Emailer extends JFrame{
 	    props.put("mail.smtp.host", host);
 	    props.put("mail.smtp.user", from);
 	    props.put("mail.smtp.port", "587");
-	    props.put("mail.smtp.password", "McVSBugfinder");
+	    props.put("mail.smtp.password", "** PASS HERE**");
 	    props.put("mail.smtp.auth", "true");
 
 	    Session session = Session.getDefaultInstance(props, null);
@@ -109,7 +109,7 @@ public class Emailer extends JFrame{
 	    message.setSubject(Subject);
 	    message.setText(msg);
 	    Transport transport = session.getTransport("smtp");
-	    transport.connect(host, from, "McVSBugfinder");
+	    transport.connect(host, from, "** PASS HERE**");
 	    transport.sendMessage(message, message.getAllRecipients());
 	    transport.close();
 	}

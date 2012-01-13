@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import javax.swing.*;
 import java.awt.*;
@@ -133,6 +133,11 @@ public class Login extends JFrame {
             	if(dLoadJars.v.equals("1.0")){
                 	setVisible(false);
             		dLoadJars.DL1_actionPerformed();
+            		return;
+            	}
+            	if(dLoadJars.v.equals("1.1")){
+            		setVisible(false);
+            		dLoadJars.DL11_actionPerformed();
             		return;
             	}
         	}

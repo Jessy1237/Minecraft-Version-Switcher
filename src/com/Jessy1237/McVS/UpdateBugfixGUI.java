@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

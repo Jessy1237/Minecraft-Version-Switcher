@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import javax.swing.*;
 
@@ -30,9 +30,10 @@ public class Download extends JFrame{
 	public static File file1 = new File(dir, "/1.0.jar");
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static String osName = System.getProperty("os.name").toLowerCase();
-	public static String u1 = ("*URL HERE*");
-	public static String u18 = ("*URL HERE*");
-	public static String u17 = ("*URL HERE*");
+	public static String u1 = ("** URL HERE**");
+	public static String u18 = ("** URL HERE**");
+	public static String u17 = ("**URL HERE**");
+	public static String u11 = ("**URL HERE**");
 	public static int c = 1;
 	
 	public Download(){
@@ -94,9 +95,18 @@ public class Download extends JFrame{
 	        						loadFile(u18, fileJar);
 	        					}
 	        				}else{
-	        					if(dLoadJars.v.equals("McVS")){
-	        						loadFile(Update.dUrl, new File(userHome, "/Desktop/Minecraft Version Switcher v" + Update.version + ".jar"));
-	        						JOptionPane.showMessageDialog(null, "Finished downloading the update, Delete this version and use the new one on your desktop.", "Minecraft Versions Switcher", 1);
+	        					if(dLoadJars.v.equals("1.1")){
+	        						if(osName.contains("win")){
+	        							loadFile(u11, WinfileJar);
+	        						}
+	        						if(osName.contains("mac")){
+	        							loadFile(u11, fileJar);
+	        						}
+	        					}else{
+	        						if(dLoadJars.v.equals("McVS")){
+	        							loadFile(Update.dUrl, new File(userHome, "/Desktop/Minecraft Version Switcher v" + Update.version + ".jar"));
+	        							JOptionPane.showMessageDialog(null, "Finished downloading the update, Delete this version and use the new one on your desktop.", "Minecraft Versions Switcher", 1);
+	        						}
 	        					}
 	        				}
 	        			}
@@ -109,7 +119,7 @@ public class Download extends JFrame{
 	        		}
 	        		if(c == 2){
 	        			setVisible(false);
-	        			Opener o = new Opener();
+	        			McVS o = new McVS();
 	        			o.setVisible(true);
 	        		}
 	        	}
@@ -143,7 +153,7 @@ public class Download extends JFrame{
 		}
 	    out.close();
 	    inputStream.close();
-	    Opener.mcver();
+	    McVS.mcver();
 	    done();
 		Update.ver.delete();
 		Update.dir.delete();

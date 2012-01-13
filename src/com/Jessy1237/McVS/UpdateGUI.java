@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -76,7 +76,7 @@ public class UpdateGUI extends JFrame{
 				Update.ver.delete();
 				Update.dir.delete();
 				setVisible(false);
-				Opener o = new Opener();
+				McVS o = new McVS();
 				o.setVisible(true);
 			}
 		});

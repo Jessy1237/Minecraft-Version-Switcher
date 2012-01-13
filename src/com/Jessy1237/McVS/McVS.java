@@ -1,4 +1,4 @@
-package com.Jessy1237.renamer;
+package com.Jessy1237.McVS;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -14,34 +14,39 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class Opener extends JFrame {
+public class McVS extends JFrame {
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,
 			"/AppData/roaming/.minecraft");
+	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
 	public static File Winfile18 = new File(Windir, "/bin/1.8.jar");
 	public static File Winfile17 = new File(Windir, "/bin/1.7.jar");
 	public static File Winfile1 = new File(Windir, "/bin/1.0.jar");
+	public static File Winfile11 = new File(Windir, "/bin/1.1.jar");
 	public static File WinfileJar = new File(Windir, "/bin/minecraft.jar");
+	public static File file18 = new File(dir, "/bin/1.8.jar"); 
+	public static File file17 = new File(dir, "/bin/1.7.jar");
+	public static File file1 = new File(dir, "/bin/1.0.jar");
+	public static File file11 = new File(dir, "/bin/1.1.jar");
+	public static File fileJar = new File(dir, "/bin/minecraft.jar");
 	public static File WinfileFolder = new File(Windir, "/mods");
 	public static File Winfolder18 = new File(Windir, "/mods 1-8");
 	public static File Winfolder17 = new File(Windir, "/mods 1-7");
 	public static File Winfolder1 = new File(Windir, "/mods 1-0");
-	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
-	public static File file18 = new File(dir, "/bin/1.8.jar"); 
-	public static File file17 = new File(dir, "/bin/1.7.jar");
-	public static File file1 = new File(dir, "/bin/1.0.jar");
-	public static File fileJar = new File(dir, "/bin/minecraft.jar");
+	public static File Winfolder11 = new File(Windir, "/mods 1-1");
 	public static File fileFolder = new File(dir, "/mods");
 	public static File folder18 = new File(dir, "/mods 1-8");
 	public static File folder17 = new File(dir, "/mods 1-7");
 	public static File folder1 = new File(dir, "/mods 1-0");
+	public static File folder11 = new File(dir, "/mods 1-1");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
-	public static double vernum = 4.11;
+	public static double vernum = 4.2;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
 	public JButton Play17;
+	public JButton Play11;
 	public JButton Email;
 	public JButton dLoad;
 	public JButton Updateb;
@@ -73,12 +78,12 @@ public class Opener extends JFrame {
 		}
 	}
 
-	public Opener() {
+	public McVS() {
 		S = new Switch();
 		Wr = new TextWriter();
 		Ma = new TextMaker();
 		this.setTitle("Minecraft Version Switcher By Jessy1237");
-		this.setSize(new Dimension(480, 200));
+		this.setSize(new Dimension(480, 250));
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setLayout(null);
@@ -89,6 +94,17 @@ public class Opener extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				Update.download();
+			}
+		});
+		this.Play11 = new JButton();
+		this.Play11.setText("Play Minecraft 1.1");
+		this.Play11.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e){
+				try{
+					Play11_ActionPerformed();
+				}catch(IOException e1){
+					e1.printStackTrace();
+				}
 			}
 		});
 		this.Play1 = new JButton();
@@ -156,26 +172,33 @@ public class Opener extends JFrame {
 
 		Play18.setBounds(20, 15, 180, 30);
 		Play17.setBounds(275, 15, 180, 30);
-		dLoad.setBounds(20, 58, 180, 30);
-		Play1.setBounds(275, 58, 180, 30);
-		Updateb.setBounds(35, 101, 150, 30);
-		Email.setBounds(290, 101, 150, 30);
+		Play11.setBounds(275, 58, 180, 30);
+		dLoad.setBounds(150, 101, 180, 30);
+		Play1.setBounds(20, 58, 180, 30);
+		Updateb.setBounds(35, 144, 150, 30);
+		Email.setBounds(290, 144, 150, 30);
 		
 		mcverlabel.setSize(180, 20);
-		mcverlabel.setLocation(275, 145);
+		mcverlabel.setLocation(275, 188);
 		mcverlabel.setFont(new Font("Arial", Font.PLAIN, 14));
 		Version1.setSize(150, 20);
-		Version1.setLocation(40, 145);
+		Version1.setLocation(40, 188);
 		Version1.setFont(new Font("Arial", Font.PLAIN, 14));
 
 		add(Play18);
 		add(Play17);
 		add(dLoad);
 		add(Play1);
+		add(Play11);
 		add(Updateb);
 		add(Email);
 		add(Version1);
 		add(mcverlabel);
+		try{
+			mcver();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	public static void Play1_ActionPerformed() throws IOException {
@@ -209,6 +232,18 @@ public class Opener extends JFrame {
 		}
 		if (osName.contains("mac")) {
 			S.Switchm("1.8", file18, folder18);
+		}
+		mcver();
+		mcverlabel.setText("Current Selected Jar: " + mcver);
+	}
+	
+	private static void Play11_ActionPerformed() throws IOException{
+		Jar = "1.1";
+		if(osName.contains("win")){
+			S.Switchw("1.1", Winfile11, Winfolder11);
+		}
+		if(osName.contains("mac")){
+			S.Switchm("1.1", file11, folder11);
 		}
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
