@@ -30,8 +30,8 @@ public class Download extends JFrame{
 	public static File file1 = new File(dir, "/1.0.jar");
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static String osName = System.getProperty("os.name").toLowerCase();
-	public static String u1 = ("** URL HERE**");
-	public static String u18 = ("** URL HERE**");
+	public static String u1 = ("**URL HERE**");
+	public static String u18 = ("**URL HERE**");
 	public static String u17 = ("**URL HERE**");
 	public static String u11 = ("**URL HERE**");
 	public static int c = 1;

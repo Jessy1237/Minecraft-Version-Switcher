@@ -41,7 +41,7 @@ public class McVS extends JFrame {
 	public static File folder11 = new File(dir, "/mods 1-1");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
-	public static double vernum = 4.2;
+	public static double vernum = 5.0;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Play18;
 	public static String Jar = "";
@@ -51,7 +51,8 @@ public class McVS extends JFrame {
 	public JButton dLoad;
 	public JButton Updateb;
 	public JButton Play1;
-	private JLabel Version1;
+	public JButton cJar;
+	static JLabel Version1;
 	private static JLabel mcverlabel;
 	static Switch S;
 	static TextWriter Wr;
@@ -156,7 +157,7 @@ public class McVS extends JFrame {
 		});
 		
 		this.Email = new JButton();
-		this.Email.setText("Found a Bug?");
+		this.Email.setText("Talk to Dev");
 		this.Email.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Emailer em = new Emailer();
@@ -165,29 +166,43 @@ public class McVS extends JFrame {
 			}
 		});
 		
+		this.cJar = new JButton();
+		this.cJar.setText("Play Custom Minecraft Jar");
+		this.cJar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				CustomJars cj = new CustomJars();
+				cj.setVisible(true);
+				setVisible(false);
+			}
+		});
+		
 		mcverlabel = new JLabel();
-		mcverlabel.setText("Current Selected Jar: " + mcver);
+		mcverlabel.setText("Current Selected Version: " + mcver);
 		Version1 = new JLabel();
-		Version1.setText("Program Version: " + vernum);
+		Version1.setText("Program Version:");
+		Thread t = new Thread(new Update());
+		t.start();
 
 		Play18.setBounds(20, 15, 180, 30);
 		Play17.setBounds(275, 15, 180, 30);
 		Play11.setBounds(275, 58, 180, 30);
-		dLoad.setBounds(150, 101, 180, 30);
+		dLoad.setBounds(20, 101, 180, 30);
+		cJar.setBounds(265, 101, 200, 30);
 		Play1.setBounds(20, 58, 180, 30);
 		Updateb.setBounds(35, 144, 150, 30);
 		Email.setBounds(290, 144, 150, 30);
 		
-		mcverlabel.setSize(180, 20);
-		mcverlabel.setLocation(275, 188);
+		mcverlabel.setSize(240, 20);
+		mcverlabel.setLocation(230, 188);
 		mcverlabel.setFont(new Font("Arial", Font.PLAIN, 14));
-		Version1.setSize(150, 20);
-		Version1.setLocation(40, 188);
+		Version1.setSize(260, 20);
+		Version1.setLocation(10, 188);
 		Version1.setFont(new Font("Arial", Font.PLAIN, 14));
 
 		add(Play18);
 		add(Play17);
 		add(dLoad);
+		add(cJar);
 		add(Play1);
 		add(Play11);
 		add(Updateb);
@@ -203,48 +218,28 @@ public class McVS extends JFrame {
 
 	public static void Play1_ActionPerformed() throws IOException {
 		Jar = "1.0";
-		if (osName.contains("win")) {
-			S.Switchw("1.0", Winfile1, Winfolder1);
-		}
-		if (osName.contains("mac")) {
-			S.Switchm("1.0", file1, folder1);
-		}
+		S.switchJar("1.0");
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
 	private static void Play17_ActionPerformed() throws IOException {
 		Jar = "1.7";
-		if (osName.contains("win")) {
-			S.Switchw("1.7", Winfile17, Winfolder17);
-		}
-		if (osName.contains("mac")) {
-			S.Switchm("1.7", file17, folder17);
-		}
+		S.switchJar("1.7");
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 
 	private static void Play18_ActionPerformed() throws IOException {
 		Jar = "1.8";
-		if (osName.contains("win")) {
-			S.Switchw("1.8", Winfile18, Winfolder18);
-		}
-		if (osName.contains("mac")) {
-			S.Switchm("1.8", file18, folder18);
-		}
+		S.switchJar("1.8");
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}
 	
 	private static void Play11_ActionPerformed() throws IOException{
 		Jar = "1.1";
-		if(osName.contains("win")){
-			S.Switchw("1.1", Winfile11, Winfolder11);
-		}
-		if(osName.contains("mac")){
-			S.Switchm("1.1", file11, folder11);
-		}
+		S.switchJar("1.1");
 		mcver();
 		mcverlabel.setText("Current Selected Jar: " + mcver);
 	}

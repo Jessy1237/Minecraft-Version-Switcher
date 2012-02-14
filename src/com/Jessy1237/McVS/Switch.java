@@ -10,178 +10,17 @@ public class Switch {
 	public static File Windir = new File(userHome,
 			"/AppData/roaming/.minecraft");
 	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
-	public static File Winfile18 = new File(Windir, "/bin/1.8.jar");
-	public static File Winfile17 = new File(Windir, "/bin/1.7.jar");
-	public static File Winfile1 = new File(Windir, "/bin/1.0.jar");
-	public static File Winfile11 = new File(Windir, "/bin/1.1.jar");
-	public static File WinfileJar = new File(Windir, "/bin/minecraft.jar");
-	public static File file18 = new File(dir, "/bin/1.8.jar"); 
-	public static File file17 = new File(dir, "/bin/1.7.jar");
-	public static File file1 = new File(dir, "/bin/1.0.jar");
-	public static File file11 = new File(dir, "/bin/1.1.jar");
-	public static File fileJar = new File(dir, "/bin/minecraft.jar");
-	public static File WinfileFolder = new File(Windir, "/mods");
-	public static File Winfolder18 = new File(Windir, "/mods 1-8");
-	public static File Winfolder17 = new File(Windir, "/mods 1-7");
-	public static File Winfolder1 = new File(Windir, "/mods 1-0");
-	public static File Winfolder11 = new File(Windir, "/mods 1-1");
-	public static File fileFolder = new File(dir, "/mods");
-	public static File folder18 = new File(dir, "/mods 1-8");
-	public static File folder17 = new File(dir, "/mods 1-7");
-	public static File folder1 = new File(dir, "/mods 1-0");
-	public static File folder11 = new File(dir, "/mods 1-1");
-    static TextWriter Mac;
-	static TextWriter Win;
+    static TextWriter T;
 	
 	public Switch() {
-		Win = new TextWriter();
-		Mac = new TextWriter();
-	}
-
-	public void Switchw(String ver, File jar, File folder) throws IOException{
-		if(McVS.mcver.equals("1.8") && !(McVS.Jar.equals("1.8"))){
-			WinfileJar.renameTo(Winfile18);
-		}
-		if(McVS.mcver.equals("1.0") && !(McVS.Jar.equals("1.0"))){
-			WinfileJar.renameTo(Winfile1);
-		}
-		if(McVS.mcver.equals("1.7") && !(McVS.Jar.equals("1.7"))){
-			WinfileJar.renameTo(Winfile17);
-		}
-		if(McVS.mcver.equals("1.1") && !(McVS.Jar.equals("1.1"))){
-			WinfileJar.renameTo(Winfile11);
-		}
-		if(!jar.exists()){
-			if(McVS.mcver.equals("1.8") && McVS.Jar.equals("1.8")){
-				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-				ErrorWriter.JAS();
-			}else{
-				if(McVS.mcver.equals("1.7") && McVS.Jar.equals("1.7")){
-					JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-					ErrorWriter.JAS();
-				}else{
-					if(McVS.mcver.equals("1.0") && McVS.Jar.equals("1.0")){
-						JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-						ErrorWriter.JAS();
-					}else{
-						if(McVS.mcver.equals("1.1") && McVS.Jar.equals("1.1")){
-							JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-							ErrorWriter.JAS();
-						}else{
-							JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-							ErrorWriter.Miss();
-							if (McVS.mcver.equals("1.8")) {
-								Winfile18.renameTo(WinfileJar);
-								Win.Wintxt18();
-							}
-							if(McVS.mcver.equals("1.1")){
-								Winfile11.renameTo(WinfileJar);
-								Win.Wintxt11();
-							}
-							if(McVS.mcver.equals("1.0")){
-								Winfile1.renameTo(WinfileJar);
-								Win.Wintxt1();
-							}
-							if(McVS.mcver.equals("1.7")){
-								Winfile17.renameTo(WinfileJar);
-								Win.Wintxt17();
-							}
-						}
-					}
-				}
-			}
-		}else{
-			boolean success = jar.renameTo(WinfileJar);
-			if(!success){
-				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-				ErrorWriter.Un();
-				if (McVS.mcver.equals("1.8")) {
-					Winfile18.renameTo(WinfileJar);
-					Win.Wintxt18();
-				}
-				if(McVS.mcver.equals("1.0")){
-					Winfile1.renameTo(WinfileJar);
-					Win.Wintxt1();
-				}
-				if(McVS.mcver.equals("1.7")){
-					Winfile17.renameTo(WinfileJar);
-				}
-				if(McVS.mcver.equals("1.1")){
-					Winfile11.renameTo(WinfileJar);
-				}
-				WinfileJar.renameTo(jar);
-			}else{
-				if(McVS.mcver.equals("1.8")){
-					WinfileFolder.renameTo(Winfolder18);
-				}
-				if(McVS.mcver.equals("1.0")){
-					WinfileFolder.renameTo(Winfolder1);
-				}
-				if(McVS.mcver.equals("1.7")){
-					WinfileFolder.renameTo(Winfolder17);
-				}
-				if(McVS.mcver.equals("1.1")){
-					WinfileFolder.renameTo(Winfolder11);
-				}
-				boolean success1 = folder.renameTo(WinfileFolder);
-				if(!success1){
-					JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-					if(!folder.exists()){
-						ErrorWriter.FMiss(folder);
-					}else{
-						ErrorWriter.FUn();
-					}
-					WinfileJar.renameTo(jar);
-					if (McVS.mcver.equals("1.8")) {
-						Winfile18.renameTo(WinfileJar);
-						Win.Wintxt18();
-					}
-					if(McVS.mcver.equals("1.0")){
-						Winfile1.renameTo(WinfileJar);
-						Win.Wintxt1();
-					}
-					if(McVS.mcver.equals("1.7")){
-						Winfile17.renameTo(WinfileJar);
-						Win.Wintxt17();
-					}
-					if(McVS.mcver.equals("1.1")){
-						Winfile11.renameTo(WinfileJar);
-						Win.Wintxt11();
-					}
-					WinfileFolder.renameTo(folder);
-				}else{
-					if(McVS.Jar.equals("1.7")){
-						Win.Wintxt17();
-					}
-					if(McVS.Jar.equals("1.8")){
-						Win.Wintxt18();
-					}
-					if(McVS.Jar.equals("1.0")){
-						Win.Wintxt1();
-					}
-					if(McVS.Jar.equals("1.1")){
-						Win.Wintxt11();
-					}
-				}			
-			}
-		}
-		JOptionPane.showMessageDialog(null, "Done", "Minecraft Version Switcher", 1);
+		T = new TextWriter();
 	}
 	
-	public void Switchm(String ver, File jar, File folder) throws IOException{
-		if(McVS.mcver.equals("1.8") && !(McVS.Jar.equals("1.8"))){
-			fileJar.renameTo(file18);
+	public void switchJar(String ver) throws IOException{
+		if(!McVS.mcver.equals(ver)){
+			getFile("minecraft").renameTo(getFile(McVS.mcver));
 		}
-		if(McVS.mcver.equals("1.0") && !(McVS.Jar.equals("1.0"))){
-			fileJar.renameTo(file1);
-		}
-		if(McVS.mcver.equals("1.7") && !(McVS.Jar.equals("1.7"))){
-			fileJar.renameTo(file17);
-		}
-		if(McVS.mcver.equals("1.1") && !(McVS.Jar.equals("1.1"))){
-			fileJar.renameTo(file11);
-		}
-		if(!jar.exists()){
+		if(!getFile(ver).exists()){
 			if(McVS.mcver.equals("1.8") && McVS.Jar.equals("1.8")){
 				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
 				ErrorWriter.JAS();
@@ -200,99 +39,109 @@ public class Switch {
 						}else{
 							JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
 							ErrorWriter.Miss();
-							if (McVS.mcver.equals("1.8")) {
-								file18.renameTo(fileJar);
-								Mac.Mactxt18();
-							}
-							if(McVS.mcver.equals("1.0")){
-								file1.renameTo(fileJar);
-								Mac.Mactxt1();
-							}
-							if(McVS.mcver.equals("1.7")){
-								file17.renameTo(fileJar);
-								Mac.Mactxt17();
-							}
+							getFile(ver).renameTo(getFile("minecraft"));
 						}
 					}
 				}
 			}	
 		}else{
-			boolean success = jar.renameTo(fileJar);
+			boolean success = getFile(ver).renameTo(getFile("minecraft"));
 			if(!success){
 				JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
 				ErrorWriter.Un();
-				if (McVS.mcver.equals("1.8")) {
-					file18.renameTo(fileJar);
-					Mac.Mactxt18();
-				}
-				if(McVS.mcver.equals("1.0")){
-					file1.renameTo(fileJar);
-					Mac.Mactxt1();
-				}
-				if(McVS.mcver.equals("1.7")){
-					file17.renameTo(fileJar);
-					Mac.Mactxt17();
-				}
-				if(McVS.mcver.equals("1.1")){
-					file11.renameTo(fileJar);
-					Mac.Mactxt11();
-				}
-				fileJar.renameTo(jar);
+				getFile(ver).renameTo(getFile("minecraft"));
+				getFile("minecraft").renameTo(getFile(ver));
 			}else{
-				if(McVS.mcver.equals("1.8")){
-					fileFolder.renameTo(folder18);
-				}
-				if(McVS.mcver.equals("1.0")){
-					fileFolder.renameTo(folder1);
-				}
-				if(McVS.mcver.equals("1.7")){
-					fileFolder.renameTo(folder17);
-				}
-				if(McVS.mcver.equals("1.1")){
-					fileFolder.renameTo(folder11);
-				}
-				boolean success1 = folder.renameTo(fileFolder);
+				getFolder("mods").renameTo(getFolder(McVS.mcver));
+				boolean success1 = getFolder(ver).renameTo(getFolder("mods"));
 				if(!success1){
 					JOptionPane.showMessageDialog(null, "Reverting to Previous successful settings, Check the Error Log on your desktop.", "Minecraft Version Switcher", 1);
-					if(!folder.exists()){
-						ErrorWriter.FMiss(folder);
+					if(!getFolder(ver).exists()){
+						ErrorWriter.FMiss(getFolder(ver));
 					}else{
 						ErrorWriter.FUn();
 					}
-					fileJar.renameTo(jar);
-					if (McVS.mcver.equals("1.8")) {
-						file18.renameTo(fileJar);
-						Mac.Mactxt18();
-					}
-					if(McVS.mcver.equals("1.0")){
-						file1.renameTo(fileJar);
-						Mac.Mactxt1();
-					}
-					if(McVS.mcver.equals("1.7")){
-						file17.renameTo(fileJar);
-						Mac.Mactxt17();
-					}
-					if(McVS.mcver.equals("1.1")){
-						file11.renameTo(fileJar);
-						Mac.Mactxt11();
-					}
-					fileFolder.renameTo(folder);
+					getFile("minecraft").renameTo(getFile(ver));
+					getFile(McVS.mcver).renameTo(getFile("minecraft"));
+					getFolder("mods").renameTo(getFolder(ver));
 				}else{
-					if(McVS.Jar.equals("1.7")){
-						Mac.Mactxt17();
-					}
-					if(McVS.Jar.equals("1.8")){
-						Mac.Mactxt18();
-					}
-					if(McVS.Jar.equals("1.0")){
-						Mac.Mactxt1();
-					}
-					if(McVS.Jar.equals("1.1")){
-						Mac.Mactxt11();
-					}
+					T.write(ver);
 				}			
 			}
 		}
 		JOptionPane.showMessageDialog(null, "Done", "Minecraft Version Switcher", 1);
+	}
+	
+	public static File getcFile(String jar){
+		File file = null;
+		if(McVS.osName.contains("win")){
+			file = new File(Windir, "/bin/" + jar+ ".jar");
+		}
+		if(McVS.osName.contains("mac")){
+			file = new File(dir, "/bin/" + jar + ".jar");
+		}
+		return file;
+	}
+	
+	public static File getFile(String jar){
+		File file = null;
+		if(McVS.osName.contains("win")){
+			if(jar.equals("1.8") || jar.equals("1.7") || jar.equals("1.0") || jar.equals("1.1") || jar.equals("minecraft")){
+				file = new File(Windir, "/bin/" + jar + ".jar");
+			}else{
+				file = getcFile(jar);
+			}
+		}
+		if(McVS.osName.contains("mac")){
+			if(jar.equals("1.8") || jar.equals("1.7") || jar.equals("1.0") || jar.equals("1.1") || jar.equals("minecraft")){
+				file = new File(dir, "/bin/" + jar + ".jar");
+			}else{
+				file = getcFile(jar);
+			}
+		}
+		return file;
+	}
+	
+	public static File getcFolder(String jar){
+		File file = null;
+		if(McVS.osName.contains("win")){
+			file = new File(Windir, "/mods " + jar);
+		}
+		if(McVS.osName.contains("mac")){
+			file = new File(dir, "/mods " + jar);
+		}
+		return file;
+	}
+	
+	public static File getFolder(String jar){
+		File file = null;
+		String s = jar;
+		if(McVS.osName.contains("win")){
+			if(jar.equals("1.8") || jar.equals("1.7") || jar.equals("1.0") || jar.equals("1.1")){
+				s = s.replace(".", "-");
+				file = new File(Windir, "/mods " + s);
+			}else{
+				if(jar.equals("mods")){
+					s = s.replace(".", "-");
+					file = new File(Windir, "/mods");
+				}else{
+					file = getcFolder(jar);
+				}
+			}
+		}
+		if(McVS.osName.contains("mac")){
+			if(jar.equals("1.8") || jar.equals("1.7") || jar.equals("1.0") || jar.equals("1.1")){
+				s = s.replace(".", "-");
+				file = new File(dir, "/mods " + s);
+			}else{
+				if(jar.equals("mods")){
+					s = s.replace(".", "-");
+					file = new File(dir, "/mods");
+				}else{
+					file = getcFolder(jar);
+				}
+			}
+		}
+		return file;
 	}
 }

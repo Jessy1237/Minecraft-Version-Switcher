@@ -17,6 +17,8 @@ public class Emailer extends JFrame{
 	public JButton Send;
 	public JLabel a;
 	public JLabel b;
+	public JLabel c;
+	public JTextField email;
 	public JTextField user;
 	public JTextArea msg;
 	
@@ -58,25 +60,39 @@ public class Emailer extends JFrame{
 		Back.setBounds(95, 188, 100, 30);
 		
 		a = new JLabel();
-		a.setText("Please be Brief; only tell me what happened and how!");
+		a.setText("Please be Brief!");
 		a.setFont(new Font("Arial", Font.PLAIN, 14));
 		a.setBounds(10, 10, 500, 20);
 		
 		b = new JLabel();
 		b.setText("(Optional) Username:");
 		b.setFont(new Font("Arial", Font.PLAIN, 14));
-		b.setBounds(25, 40, 200, 20);
+		b.setBounds(10, 40, 200, 20);
 		
 		user = new JTextField();
-		user.setBounds(160, 40, 150, 20);
+		user.setBounds(145, 40, 150, 20);
+		
+		c = new JLabel();
+		c.setText("(Optional)Email:");
+		c.setFont(new Font("Arial", Font.PLAIN, 14));
+		c.setBounds(310, 40, 200, 20);
+		
+		email = new JTextField();
+		email.setBounds(412, 40, 150, 20);
 		
 		msg = new JTextArea();
-		msg.setText("Message Here");
-		msg.setBounds(10, 75, 555, 110);
+		msg.setEditable(true);
+		msg.setEnabled(true);
+		msg.setLineWrap(true);
+		msg.setText("Message Here, Email is so i can email you back if need be.");
+		msg.setSize(535, 105);
+		msg.setLocation(20, 75);
 		
 		add(a);
 		add(b);
 		add(user);
+		add(c);
+		add(email);
 		add(msg);
 		add(Back);
 		add(Send);
@@ -120,7 +136,7 @@ public class Emailer extends JFrame{
 		}else{
 			username = user.getText();
 		}
-		String msg1 = msg.getText() + "\n" + "From " + username;
+		String msg1 = msg.getText() + "\n" + "From " + username + ", " + email.getText();
 		sendEmail("smtp.gmail.com", "mcvs.bugfinder@gmail.com", "Found a Bug", msg1);
 	}
 }

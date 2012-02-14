@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-public class main{
+public class Main{
 	
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,

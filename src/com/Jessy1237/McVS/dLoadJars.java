@@ -21,13 +21,14 @@ public class dLoadJars extends JFrame {
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome,
 			"/AppData/roaming/.minecraft");
-	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
+	public static File dir = new File(userHome,
+			"/Library/Application Support/minecraft");
 	public static File Winfile18 = new File(Windir, "/bin/1.8.jar");
 	public static File Winfile17 = new File(Windir, "/bin/1.7.jar");
 	public static File Winfile1 = new File(Windir, "/bin/1.0.jar");
 	public static File Winfile11 = new File(Windir, "/bin/1.1.jar");
 	public static File WinfileJar = new File(Windir, "/bin/minecraft.jar");
-	public static File file18 = new File(dir, "/bin/1.8.jar"); 
+	public static File file18 = new File(dir, "/bin/1.8.jar");
 	public static File file17 = new File(dir, "/bin/1.7.jar");
 	public static File file1 = new File(dir, "/bin/1.0.jar");
 	public static File file11 = new File(dir, "/bin/1.1.jar");
@@ -51,7 +52,7 @@ public class dLoadJars extends JFrame {
 	public dLoadJars() {
 		T = new TextWriter();
 		u = new Update();
-		
+
 		this.setTitle("Minecraft Version Switcher: Download Minecraft Jars");
 		this.setSize(new Dimension(480, 200));
 		this.setResizable(false);
@@ -61,7 +62,7 @@ public class dLoadJars extends JFrame {
 		this.DL11 = new JButton();
 		this.DL11.setText("Download Minecraft 1.1");
 		this.DL11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(ActionEvent e) {
 				v = "1.1";
 				Download.c = 0;
 				Login l = new Login();
@@ -117,7 +118,7 @@ public class dLoadJars extends JFrame {
 		});
 
 		DL1.setBounds(10, 58, 220, 30);
-		
+
 		DL11.setBounds(245, 58, 220, 30);
 
 		DL18.setBounds(10, 15, 220, 30);
@@ -144,184 +145,53 @@ public class dLoadJars extends JFrame {
 		add(version);
 		add(mcver);
 	}
-	
+
 	public static void DL11_actionPerformed() throws IOException {
-		if (osName.contains("win")) {
-			if (McVS.mcver.equals("1.8")) {
-				WinfileJar.renameTo(Winfile18);
-				WinfileFolder.renameTo(Winfolder18);
-			}
-			if (McVS.mcver.equals("1.7")) {
-				WinfileJar.renameTo(Winfile17);
-				WinfileFolder.renameTo(Winfolder17);
-			}
-			if (McVS.mcver.equals("1.0")){
-				WinfileJar.renameTo(Winfile1);
-				WinfileFolder.renameTo(Winfolder1);
-			}
-			if (Winfile11.exists()) {
-				Winfile11.renameTo(WinfileJar);
-			}
-			Winfolder11.renameTo(WinfileFolder);
-			T.Wintxt11();
-			Download p = new Download();
-			p.setVisible(true);
+		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
+		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
+		if (Switch.getFile("1.1").exists()) {
+			Switch.getFile("1.1").renameTo(Switch.getFile("minecraft"));
 		}
-		if (osName.contains("mac")) {
-			if (McVS.mcver.equals("1.8")) {
-				fileJar.renameTo(file18);
-				fileFolder.renameTo(folder18);
-			}
-			if (McVS.mcver.equals("1.7")) {
-				fileJar.renameTo(file17);
-				fileFolder.renameTo(folder17);
-			}
-			if (McVS.mcver.equals("1.0")){
-				fileJar.renameTo(file1);
-				fileFolder.renameTo(folder1);
-			}
-			if (file11.exists()) {
-				file11.renameTo(fileJar);
-			}
-			file11.renameTo(WinfileFolder);
-			T.Mactxt11();
-			Download p = new Download();
-			p.setVisible(true);
-		}
+		Switch.getFolder("1.1").renameTo(Switch.getFolder("mods"));
+		T.write("1.1");
+		Download p = new Download();
+		p.setVisible(true);
 	}
 
 	public static void DL1_actionPerformed() throws IOException {
-		if (osName.contains("win")) {
-			if (McVS.mcver.equals("1.8")) {
-				WinfileJar.renameTo(Winfile18);
-				WinfileFolder.renameTo(Winfolder18);
-			}
-			if (McVS.mcver.equals("1.7")) {
-				WinfileJar.renameTo(Winfile17);
-				WinfileFolder.renameTo(Winfolder17);
-			}
-			if (McVS.mcver.equals("1.1")){
-				WinfileJar.renameTo(Winfile11);
-				WinfileFolder.renameTo(Winfolder11);
-			}
-			if (Winfile1.exists()) {
-				Winfile1.renameTo(WinfileJar);
-			}
-			Winfolder1.renameTo(WinfileFolder);
-			T.Wintxt1();
-			Download p = new Download();
-			p.setVisible(true);
+		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
+		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
+		if (Switch.getFile("1.0").exists()) {
+			Switch.getFile("1.0").renameTo(Switch.getFile("minecraft"));
 		}
-		if (osName.contains("mac")) {
-			if (McVS.mcver.equals("1.8")) {
-				fileJar.renameTo(file18);
-				fileFolder.renameTo(folder18);
-			}
-			if (McVS.mcver.equals("1.7")) {
-				fileJar.renameTo(file17);
-				fileFolder.renameTo(folder17);
-			}
-			if (McVS.mcver.equals("1.1")){
-				fileJar.renameTo(file11);
-				fileFolder.renameTo(folder11);
-			}
-			if (file1.exists()) {
-				file1.renameTo(fileJar);
-			}
-			file1.renameTo(WinfileFolder);
-			T.Mactxt1();
-			Download p = new Download();
-			p.setVisible(true);
-		}
+		Switch.getFolder("1.0").renameTo(Switch.getFolder("mods"));
+		T.write("1.0");
+		Download p = new Download();
+		p.setVisible(true);
 	}
 
 	public static void DL17_actionPerformed() throws IOException {
-		if (osName.contains("win")) {
-			if (McVS.mcver.equals("1.8")) {
-				WinfileJar.renameTo(Winfile18);
-				WinfileFolder.renameTo(Winfolder18);
-			}
-			if (McVS.mcver.equals("1.0")) {
-				WinfileJar.renameTo(Winfile1);
-				WinfileFolder.renameTo(Winfolder1);
-			}
-			if (McVS.mcver.equals("1.1")){
-				WinfileJar.renameTo(Winfile11);
-				WinfileFolder.renameTo(Winfolder11);
-			}
-			if (Winfile17.exists()) {
-				Winfile17.renameTo(WinfileJar);
-			}
-			Winfolder17.renameTo(WinfileFolder);
-			T.Wintxt17();
-			Download p = new Download();
-			p.setVisible(true);
+		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
+		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
+		if (Switch.getFile("1.7").exists()) {
+			Switch.getFile("1.7").renameTo(Switch.getFile("minecraft"));
 		}
-		if (osName.contains("mac")) {
-			if (McVS.mcver.equals("1.8")) {
-				fileJar.renameTo(file18);
-				fileFolder.renameTo(folder18);
-			}
-			if (McVS.mcver.equals("1.0")) {
-				fileJar.renameTo(file1);
-				fileFolder.renameTo(folder1);
-			}
-			if (McVS.mcver.equals("1.1")){
-				fileJar.renameTo(file11);
-				fileFolder.renameTo(folder11);
-			}
-			if (file17.exists()) {
-				file17.renameTo(fileJar);
-			}
-			folder17.renameTo(fileFolder);
-			T.Mactxt17();
-			Download p = new Download();
-			p.setVisible(true);
-		}
+		Switch.getFolder("1.7").renameTo(Switch.getFolder("mods"));
+		T.write("1.7");
+		Download p = new Download();
+		p.setVisible(true);
 	}
 
 	public static void DL18_actionPerformed() throws IOException {
-		if (osName.contains("win")) {
-			if (McVS.mcver.equals("1.7")) {
-				WinfileJar.renameTo(file17);
-				WinfileFolder.renameTo(folder17);
-			}
-			if (McVS.mcver.equals("1.0")) {
-				WinfileJar.renameTo(Winfile1);
-				WinfileFolder.renameTo(Winfolder1);
-			}
-			if (McVS.mcver.equals("1.1")){
-				WinfileJar.renameTo(Winfile11);
-				WinfileFolder.renameTo(Winfolder11);
-			}
-			if (Winfile18.exists()) {
-				Winfile18.renameTo(WinfileJar);
-			}
-			Winfolder18.renameTo(WinfileFolder);
-			T.Wintxt18();
-			Download p = new Download();
-			p.setVisible(true);
+		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
+		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
+		if (Switch.getFile("1.8").exists()) {
+			Switch.getFile("1.8").renameTo(Switch.getFile("minecraft"));
 		}
-		if (osName.contains("mac")) {
-			if (McVS.mcver.equals("1.7")) {
-				fileJar.renameTo(file17);
-				fileFolder.renameTo(folder17);
-			}
-			if (McVS.mcver.equals("1.0")) {
-				fileJar.renameTo(file1);
-				fileFolder.renameTo(folder1);
-			}
-			if (McVS.mcver.equals("1.1")){
-				fileJar.renameTo(file11);
-				fileFolder.renameTo(folder11);
-			}
-			if (file18.exists()) {
-				file18.renameTo(WinfileJar);
-			}
-			folder18.renameTo(WinfileFolder);
-			T.Mactxt18();
-			Download p = new Download();
-			p.setVisible(true);
-		}
+		Switch.getFolder("1.8").renameTo(Switch.getFolder("mods"));
+		T.write("1.8");
+		Download p = new Download();
+		p.setVisible(true);
 	}
+
 }
