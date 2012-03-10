@@ -19,12 +19,13 @@ import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
 public class McVS extends JFrame {
+	
 	public static String userHome = System.getProperty("user.home");
 	public static File Windir = new File(userHome, "/AppData/roaming/.minecraft");
 	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
-	public static double vernum = 5.1;
+	public static double vernum = 5.11;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Email;
 	public JButton dLoad;

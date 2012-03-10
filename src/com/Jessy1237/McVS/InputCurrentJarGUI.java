@@ -115,7 +115,7 @@ public class InputCurrentJarGUI extends JFrame{
 		bd = new JLabel();
 		bd.setText("Enter you current Minecraft version. Custom Jars are Allowed!");
 		bd.setFont(new Font("Arial", Font.PLAIN, 14));
-		bd.setBounds(120, 10, 240, 20);
+		bd.setBounds(10, 10, 460, 20);
 		
 		a.setText("E.g. 1.7, 1.8, 1.0 or 1.1");
 		a.setBounds(180, 115, 90, 25);
