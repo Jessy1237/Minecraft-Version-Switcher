@@ -77,6 +77,10 @@ public class InputCurrentJarGUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				text = a.getText();
 				setVisible(false);
+				if(!text.equals("1.1") && !text.equals("1.7") && !text.equals("1.8") && !text.equals("1.0") && !text.equals("1.2")){
+					int size = JarMethods.names.size() + 1;
+					JarMethods.names.put("custom" + size, text);
+				}
 				c();
 				McVS newform = new McVS();
 				newform.setVisible(true);
@@ -109,7 +113,7 @@ public class InputCurrentJarGUI extends JFrame{
 		ba.setBounds(160, 80, 180, 20);
 		
 		bd = new JLabel();
-		bd.setText("Enter you current Minecraft version.");
+		bd.setText("Enter you current Minecraft version. Custom Jars are Allowed!");
 		bd.setFont(new Font("Arial", Font.PLAIN, 14));
 		bd.setBounds(120, 10, 240, 20);
 		

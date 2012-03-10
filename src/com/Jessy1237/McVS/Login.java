@@ -140,6 +140,11 @@ public class Login extends JFrame {
             		dLoadJars.DL11_actionPerformed();
             		return;
             	}
+            	if(dLoadJars.v.equals("1.2")){
+            		setVisible(false);
+            		dLoadJars.DL12_actionPerformed();
+            		return;
+            	}
         	}
         }
 	}

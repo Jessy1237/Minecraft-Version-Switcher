@@ -23,7 +23,7 @@ public class Emailer extends JFrame{
 	public JTextArea msg;
 	
 	public Emailer(){
-		this.setTitle("Minecraft Version Switcher: Found a Bug?");
+		this.setTitle("Minecraft Version Switcher: Talk to Dev");
 		this.setSize(new Dimension(580, 250));
 		this.setResizable(false);
 		this.setLayout(null);
@@ -35,7 +35,7 @@ public class Emailer extends JFrame{
 			public void actionPerformed(ActionEvent e){
 				try {
 					Send_actionPerformed();
-					JOptionPane.showMessageDialog(null, "The Bug Message has been sent!");
+					JOptionPane.showMessageDialog(null, "The Message has been sent!");
 					msg.setText("Message Here");
 					user.setText("");
 				} catch (MessagingException e1) {
@@ -73,7 +73,7 @@ public class Emailer extends JFrame{
 		user.setBounds(145, 40, 150, 20);
 		
 		c = new JLabel();
-		c.setText("(Optional)Email:");
+		c.setText("(Optional) Email:");
 		c.setFont(new Font("Arial", Font.PLAIN, 14));
 		c.setBounds(310, 40, 200, 20);
 		
@@ -104,7 +104,7 @@ public class Emailer extends JFrame{
 	    props.put("mail.smtp.host", host);
 	    props.put("mail.smtp.user", from);
 	    props.put("mail.smtp.port", "587");
-	    props.put("mail.smtp.password", "** PASS HERE**");
+	    props.put("mail.smtp.password", "** PASSWORD HERE **");
 	    props.put("mail.smtp.auth", "true");
 
 	    Session session = Session.getDefaultInstance(props, null);
@@ -125,7 +125,7 @@ public class Emailer extends JFrame{
 	    message.setSubject(Subject);
 	    message.setText(msg);
 	    Transport transport = session.getTransport("smtp");
-	    transport.connect(host, from, "** PASS HERE**");
+	    transport.connect(host, from, "** PASSWORD HERE **");
 	    transport.sendMessage(message, message.getAllRecipients());
 	    transport.close();
 	}
