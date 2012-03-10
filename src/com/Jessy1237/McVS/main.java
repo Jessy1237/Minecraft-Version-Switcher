@@ -15,12 +15,14 @@ public class Main{
 	public static File Winfolder17 = new File(Windir, "/mods 1-7");
 	public static File Winfolder1 = new File(Windir, "/mods 1-0");
 	public static File Winfolder11 = new File(Windir, "/mods 1-1");
+	public static File Winfolder12 = new File(Windir, "/mods 1-2");
 	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
 	public static File fileFolder = new File(dir, "/mods");
 	public static File folder18 = new File(dir, "/mods 1-8");
 	public static File folder17 = new File(dir, "/mods 1-7");
 	public static File folder1 = new File(dir, "/mods 1-0");
 	public static File folder11 = new File(dir, "/mods 1-1");
+	public static File folder12 = new File(dir, "/mods 1-2");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
 	public static int c = 0;
@@ -81,6 +83,15 @@ public class Main{
 					}
 					c++;
 				}
+				if(!McVS.mcver.equals("1.2") && !(Winfolder12.exists())){
+					Winfolder11.mkdir();
+					if(c > 0){
+						msg = msg + ", 1.2";
+					}else{
+						msg = msg + "1.2";
+					}
+					c++;
+				}
 				if(c > 0){
 					JOptionPane.showMessageDialog(null, "New mod folder/s '" + msg +"', was/were created at minecraft directory, The current mod folder is for the " + McVS.mcver + " jar.", "Minecraft Version Switcher", 1);
 				}
@@ -108,12 +119,21 @@ public class Main{
 				}
 				c++;
 			}
-			if(!McVS.mcver.equals("1.1") && !(folder1.exists())){
+			if(!McVS.mcver.equals("1.1") && !(folder11.exists())){
 				folder11.mkdir();
 				if(c > 0){
 					msg = msg + ", 1.1";
 				}else{
 					msg = msg + "1.1";
+				}
+				c++;
+			}
+			if(!McVS.mcver.equals("1.2") && !(folder12.exists())){
+				folder12.mkdir();
+				if(c > 0){
+					msg = msg + ", 1.2";
+				}else{
+					msg = msg + "1.2";
 				}
 				c++;
 			}
