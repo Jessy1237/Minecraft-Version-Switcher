@@ -68,6 +68,8 @@ public class UpdateGUI extends JFrame{
 				setVisible(false);
 				Download p = new Download();
 				p.setVisible(true);
+				Update.ver.delete();
+				Update.dir.delete();
 			}
 		});
 		

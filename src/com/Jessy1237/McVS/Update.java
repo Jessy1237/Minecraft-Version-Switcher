@@ -23,8 +23,6 @@ public class Update extends JFrame implements Runnable{
 		version = Double.parseDouble(prop.getProperty("Version"));
 		dUrl = prop.getProperty("dLink");
 		in.close();
-		ver.delete();
-		dir.delete();
 		if(version > McVS.vernum){
 			UpdateGUI u = new UpdateGUI();
 			u.a.setText("Update is available, Would you like to update to version " + version + "?");

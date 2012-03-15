@@ -25,7 +25,7 @@ public class McVS extends JFrame {
 	public static File dir = new File(userHome, "/Library/Application Support/minecraft");
 	public static File Wintxt = new File(Windir, "/bin/.mcversion.txt");
 	public static File Mactxt = new File(dir, "/bin/mcversion.txt");
-	public static double vernum = 5.11;
+	public static double vernum = 5.12;
 	public static String osName = System.getProperty("os.name").toLowerCase();
 	public JButton Email;
 	public JButton dLoad;
