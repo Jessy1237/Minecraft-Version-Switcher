@@ -149,6 +149,7 @@ public class McVS extends JFrame {
 				InputCurrentJarGUI.adding = true;
 				InputCurrentJarGUI i = new InputCurrentJarGUI();
 				i.setVisible(true);
+				setVisible(false);
 			}
 		});
 
