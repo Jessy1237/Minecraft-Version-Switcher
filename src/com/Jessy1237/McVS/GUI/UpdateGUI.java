@@ -1,4 +1,4 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.GUI;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8,6 +8,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.swing.*;
+
+import com.Jessy1237.McVS.McVS;
+import com.Jessy1237.McVS.Management.Download;
+import com.Jessy1237.McVS.Management.Update;
 
 @SuppressWarnings("serial")
 public class UpdateGUI extends JFrame{

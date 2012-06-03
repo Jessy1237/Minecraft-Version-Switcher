@@ -1,15 +1,18 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.GUI;
 
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.swing.*;
+
+import com.Jessy1237.McVS.McVS;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-public class Emailer extends JFrame{
+public class EmailGUI extends JFrame{
 
 	public static String username;
 	
@@ -22,7 +25,7 @@ public class Emailer extends JFrame{
 	public JTextField user;
 	public JTextArea msg;
 	
-	public Emailer(){
+	public EmailGUI(){
 		this.setTitle("Minecraft Version Switcher: Talk to Dev");
 		this.setSize(new Dimension(580, 250));
 		this.setResizable(false);
@@ -104,7 +107,7 @@ public class Emailer extends JFrame{
 	    props.put("mail.smtp.host", host);
 	    props.put("mail.smtp.user", from);
 	    props.put("mail.smtp.port", "587");
-	    props.put("mail.smtp.password", "** PASSWORD HERE **");
+	    props.put("mail.smtp.password", "hsrc39m5");
 	    props.put("mail.smtp.auth", "true");
 
 	    Session session = Session.getDefaultInstance(props, null);
@@ -125,7 +128,7 @@ public class Emailer extends JFrame{
 	    message.setSubject(Subject);
 	    message.setText(msg);
 	    Transport transport = session.getTransport("smtp");
-	    transport.connect(host, from, "** PASSWORD HERE **");
+	    transport.connect(host, from, "hsrc39m5");
 	    transport.sendMessage(message, message.getAllRecipients());
 	    transport.close();
 	}

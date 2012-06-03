@@ -1,4 +1,4 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+
+import com.Jessy1237.McVS.Management.Update;
 
 @SuppressWarnings("serial")
 public class UpdateBugfixGUI extends JFrame{

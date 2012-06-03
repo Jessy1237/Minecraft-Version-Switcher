@@ -1,6 +1,13 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.GUI;
 
 import javax.swing.*;
+
+import com.Jessy1237.McVS.McVS;
+import com.Jessy1237.McVS.Management.Download;
+import com.Jessy1237.McVS.Management.Login;
+import com.Jessy1237.McVS.Management.TextWriter;
+import com.Jessy1237.McVS.Management.Update;
+import com.Jessy1237.McVS.Management.Util;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -114,7 +121,7 @@ public class dLoadJars extends JFrame {
 		Back.setBounds(202, 148, 75, 30);
 
 		mcver = new JLabel();
-		mcver.setText("Current Selected Jar: " + McVS.mcver);
+		mcver.setText("Current Selected Jar: " + McVS.mcver.getName());
 		mcver.setBounds(10, 195, 300, 20);
 		mcver.setFont(new Font("Arial", Font.PLAIN, 14));
 		
@@ -128,60 +135,60 @@ public class dLoadJars extends JFrame {
 	}
 
 	public static void DL12_actionPerformed() throws IOException {
-		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
-		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
-		if (Switch.getFile("1.2").exists()) {
-			Switch.getFile("1.2").renameTo(Switch.getFile("minecraft"));
+		Util.getFile("minecraft").renameTo(McVS.mcver.getJar());
+		Util.getFolder("mods").renameTo(Util.getFolder(McVS.mcver.getName()));
+		if (Util.getFile("1.2").exists()) {
+			Util.getFile("1.2").renameTo(Util.getFile("minecraft"));
 		}
-		Switch.getFolder("1.2").renameTo(Switch.getFolder("mods"));
+		Util.getFolder("1.2").renameTo(Util.getFolder("mods"));
 		T.write("1.2");
 		Download p = new Download();
 		p.setVisible(true);
 	}
 	
 	public static void DL11_actionPerformed() throws IOException {
-		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
-		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
-		if (Switch.getFile("1.1").exists()) {
-			Switch.getFile("1.1").renameTo(Switch.getFile("minecraft"));
+		Util.getFile("minecraft").renameTo(McVS.mcver.getJar());
+		Util.getFolder("mods").renameTo(Util.getFolder(McVS.mcver.getName()));
+		if (Util.getFile("1.1").exists()) {
+			Util.getFile("1.1").renameTo(Util.getFile("minecraft"));
 		}
-		Switch.getFolder("1.1").renameTo(Switch.getFolder("mods"));
+		Util.getFolder("1.1").renameTo(Util.getFolder("mods"));
 		T.write("1.1");
 		Download p = new Download();
 		p.setVisible(true);
 	}
 
 	public static void DL1_actionPerformed() throws IOException {
-		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
-		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
-		if (Switch.getFile("1.0").exists()) {
-			Switch.getFile("1.0").renameTo(Switch.getFile("minecraft"));
+		Util.getFile("minecraft").renameTo(McVS.mcver.getJar());
+		Util.getFolder("mods").renameTo(Util.getFolder(McVS.mcver.getName()));
+		if (Util.getFile("1.0").exists()) {
+			Util.getFile("1.0").renameTo(Util.getFile("minecraft"));
 		}
-		Switch.getFolder("1.0").renameTo(Switch.getFolder("mods"));
+		Util.getFolder("1.0").renameTo(Util.getFolder("mods"));
 		T.write("1.0");
 		Download p = new Download();
 		p.setVisible(true);
 	}
 
 	public static void DL17_actionPerformed() throws IOException {
-		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
-		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
-		if (Switch.getFile("1.7").exists()) {
-			Switch.getFile("1.7").renameTo(Switch.getFile("minecraft"));
+		Util.getFile("minecraft").renameTo(McVS.mcver.getJar());
+		Util.getFolder("mods").renameTo(Util.getFolder(McVS.mcver.getName()));
+		if (Util.getFile("1.7").exists()) {
+			Util.getFile("1.7").renameTo(Util.getFile("minecraft"));
 		}
-		Switch.getFolder("1.7").renameTo(Switch.getFolder("mods"));
+		Util.getFolder("1.7").renameTo(Util.getFolder("mods"));
 		T.write("1.7");
 		Download p = new Download();
 		p.setVisible(true);
 	}
 
 	public static void DL18_actionPerformed() throws IOException {
-		Switch.getFile("minecraft").renameTo(Switch.getFile(McVS.mcver));
-		Switch.getFolder("mods").renameTo(Switch.getFolder(McVS.mcver));
-		if (Switch.getFile("1.8").exists()) {
-			Switch.getFile("1.8").renameTo(Switch.getFile("minecraft"));
+		Util.getFile("minecraft").renameTo(McVS.mcver.getJar());
+		Util.getFolder("mods").renameTo(Util.getFolder(McVS.mcver.getName()));
+		if (Util.getFile("1.8").exists()) {
+			Util.getFile("1.8").renameTo(Util.getFile("minecraft"));
 		}
-		Switch.getFolder("1.8").renameTo(Switch.getFolder("mods"));
+		Util.getFolder("1.8").renameTo(Util.getFolder("mods"));
 		T.write("1.8");
 		Download p = new Download();
 		p.setVisible(true);

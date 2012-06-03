@@ -1,9 +1,12 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.Management;
 
 import java.io.*;
 import java.util.Properties;
 
 import javax.swing.*;
+
+import com.Jessy1237.McVS.McVS;
+import com.Jessy1237.McVS.GUI.UpdateGUI;
 
 @SuppressWarnings("serial")
 public class Update extends JFrame implements Runnable{
@@ -12,9 +15,9 @@ public class Update extends JFrame implements Runnable{
 	public static File dir = new File(userHome, "/McVSTemp");
 	public static File ver = new File(dir, "/version.txt");
 	public static String desc;
-	static Properties prop = new Properties();
-	static String dUrl;
-	static double version;
+	public static Properties prop = new Properties();
+	public static String dUrl;
+	public static double version;
 	static int b = 0;
 	
 	public static void readUpdate() throws IOException{
@@ -93,6 +96,8 @@ public class Update extends JFrame implements Runnable{
 		}catch(IOException e){
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Unable to check server for update, is your internet working?", "Minecraft Version Switcher", 1);
+			McVS mcvs = new McVS();
+			mcvs.setVisible(true);
 		}
 	}
 }

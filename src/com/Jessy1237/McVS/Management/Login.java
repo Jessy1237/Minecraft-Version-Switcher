@@ -1,6 +1,9 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.Management;
 
 import javax.swing.*;
+
+import com.Jessy1237.McVS.GUI.dLoadJars;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;

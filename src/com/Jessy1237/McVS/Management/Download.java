@@ -1,6 +1,9 @@
-package com.Jessy1237.McVS;
+package com.Jessy1237.McVS.Management;
 
 import javax.swing.*;
+
+import com.Jessy1237.McVS.McVS;
+import com.Jessy1237.McVS.GUI.dLoadJars;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -29,11 +32,11 @@ public class Download extends JFrame {
 	public static File file1 = new File(dir, "/1.0.jar");
 	public static File fileJar = new File(dir, "/minecraft.jar");
 	public static String osName = System.getProperty("os.name").toLowerCase();
-	public static String u1 = ("** URL HERE **");
-	public static String u18 = ("** URL HERE **");
-	public static String u17 = ("** URL HERE **");
-	public static String u11 = ("** URL HERE **");
-	public static String u12 = ("** URL HERE **");
+	public static String u1 = ("**URL HERE**");
+	public static String u18 = ("**URL HERE**");
+	public static String u17 = ("**URL HERE**");
+	public static String u11 = ("**URL HERE**");
+	public static String u12 = ("**URL HERE**");
 	public static int c = 1;
 
 	public Download() {
